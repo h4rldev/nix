@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+__NAME__="h4rl's nix configuration: update.sh"
+__AUTHOR__="h4rl"
+__DESCRIPTION__="Updates the flake lock and applies the configuration to the system."
+__LICENSE__="BSD 3-Clause License"
+__VERSION__="0.1.0"
+
+COLOR=true
+
+if ${COLOR}; then
+        ESCAPE=$(printf "\e")
+        RED="${ESCAPE}[0;31m"
+        GREEN="${ESCAPE}[0;32m"
+        YELLOW="${ESCAPE}[1;33m"
+        BLUE="${ESCAPE}[0;34m"
+        CYAN="${ESCAPE}[0;36m"
+        CLEAR="${ESCAPE}[0m"
+fi
+
+handle_failure() {
+        local MESSAGE="${1}"
+
+        if [[ -z ${MESSAGE} ]]; then
+                echo "${RED}!${CLEAR} No failure message provided, are you using this right?"
+                exit 1
+        fi
+
+        echo "${RED}!${CLEAR} ${MESSAGE}${CLEAR}"
+        exit 1
+}
+
+pushd /etc/nixos/ >/dev/null || handle_failure "Failed to pushd" 
+
+update_lock() {
+        echo -e "${BLUE}>${CLEAR} Updating flake.lock.."
+        if sudo nix flake update; then
+                echo -e "${GREEN}✓${CLEAR} Successfully updated flake.lock!"
+        else
+                echo -e "${RED}!${CLEAR} Somecthing went wrong updating flake.lock! \nError code: ${?}"
+                exit 1
+        fi
+}
+
+rebuild() {
+        local SUB_CMD
+        SUB_CMD=${2:-"switch"}
+        
+        echo -e "${BLUE}>${CLEAR} Rebuilding the NixOS configuration.."
+        if sudo nixos-rebuild "${SUB_CMD}" --flake '.#'; then
+                echo -e "${GREEN}✓${CLEAR} Successfully reconfigured!"
+        else
+                echo -e "${RED}!${CLEAR} Somecthing went wrong reconfiguring! \nError code: ${?}"
+                exit 1
+        fi
+}
+
+update_entire_system() {
+        update_lock
+        rebuild "${@}"
+}
+
+case ${1} in
+"lock")
+        update_lock
+        ;;
+
+"rebuild")
+        rebuild "${@}"
+        ;;
+"all" | *)
+        update_entire_system "${@}"
+        ;;
+esac
+
+echo -e "${GREEN}✓${CLEAR} Finished!"
+
+popd >/dev/null || handle_failure "Failed to popd" 
