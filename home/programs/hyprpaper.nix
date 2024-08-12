@@ -1,20 +1,18 @@
+{lib, config, pkgs, ...}:
+
 {
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
   services.hyprpaper = {
     enable = true;
     settings = {
       ipc = "on";
       splash = true;
       splash_offset = 2.0;
+
       preload = [
-        "/etc/nixos/.wallpapers/lain.png"
+	"${config.home.homeDirectory}/.wallpapers/lain.png"
       ];
       wallpaper = [
-        "eDP-1, /etc/nixos/.wallpapers/lain.png"
+	"eDP-1, ${config.home.homeDirectory}/.wallpapers/lain.png"
       ];
     };
   };
