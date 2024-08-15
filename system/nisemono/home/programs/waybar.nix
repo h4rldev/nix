@@ -10,30 +10,28 @@
       mainBar = {
         layer = "top";
         position = "top";
-        output = "eDP-1";
+        output = "DP-2";
         height = 36;
-        width = 1908;
+        width = 2528;
         margin-top = 6;
         spacing = 0;
         modules-left = [
           "hyprland/workspaces"
           "pulseaudio"
           "custom/playerctl"
-          #"cava"
-          "tray"
+          "cava"
         ];
         modules-center = [
           "hyprland/window"
         ];
         modules-right = [
+          "tray"
           "custom/uptime"
-          "backlight"
           "disk"
           "memory"
           "temperature"
           "cpu"
           "network"
-          "battery"
           "clock"
         ];
 
@@ -112,11 +110,11 @@
             on-click-right = "mode";
           };
         };
-
+ 
         "hyprland/window" = {
           max-length = 30;
           format = "{}";
-        };
+        }; 
 
         "tray" = {
           # "icon-size": 21,
@@ -129,15 +127,7 @@
           exec = "uptime | sed -e 's/.*up \\([^,]*\\).*/\\1/' | xargs";
           interval = 5;
         };
-
-        "backlight" = {
-          format = "{}% ";
-          tooltip = false;
-          on-scroll-up = "brightnessctl set 5%+";
-          on-scroll-down = "brightnessctl set 5%-";
-          on-click = "brightnessctl set 100%";
-        };
-
+ 
         "disk" = {
           interval = 30;
           format = "{path} - {percentage_free}% ";
@@ -170,18 +160,145 @@
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
-
-        "battery" = {
-          interval = 15;
-          states = {
-            warning = 30;
-            critical = 15;
+ 
+        "clock" = {
+          format = "{:%H:%M:%S}";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-alt = "{:%Y-%m-%d}";
+          calendar = {
+            mode = "month";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            on-click-right = "mode";
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              days = "<span color='#ecc6d9'><b>{}</b></span>";
+              weeks = "<span color='#99ffdd'><b>W{:%W}</b></span>";
+              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+            };
           };
-          format = "{capacity}% {icon}";
-          format-icons = ["" "" "" "" ""];
-          max-length = 25;
+          actions = {
+            on-click-right = "mode";
+            on-scroll-up = "shift_up";
+            on-scroll-down = "shift_down";
+          };
+          interval = 1;
+        };
+      };
+
+      secondaryBar = {
+        layer = "top";
+        position = "top";
+        output = "HDMI-A-1";
+        height = 36;
+        width = 1648;
+        margin-top = 6;
+        spacing = 0;
+
+        modules-left = [
+          "hyprland/workspaces"
+          "pulseaudio"
+          "custom/playerctl"
+          "cava"
+        ];
+        modules-center = [
+          "hyprland/window"
+        ];
+        modules-right = [
+          "custom/uptime"
+          "clock"
+        ];
+
+        "hyprland/window" = {
+          max-length = 30;
+          format = "{}";
+        };
+        
+        "hyprland/workspaces" = {
+          on-scroll-up = "hyprctl dispatch workspace e+1";
+          on-scroll-down = "hyprctl dispatch workspace e-1";
+          format = "{icon}";
+          format-icons = {
+            "1" = "";
+            "2" = "󰖟";
+            "3" = "󰅺";
+            "4" = "󰎆";
+            "5" = "";
+            "6" = "󰂺";
+            "7" = "󰊴";
+            "urgent" = "";
+            "focused" = "";
+            "default" = "";
+          };
         };
 
+        "pulseaudio" = {
+          # "scroll-step": 1, // %, can be a float
+          format = "{volume}% {icon}  {format_source}";
+          format-bluetooth = "{volume}% {icon} {format_source}";
+          format-bluetooth-muted = "MUTED {icon} {format_source}";
+          format-muted = "MUTED  {format_source}";
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["" "" ""];
+          };
+          on-click = "pwvucontrol";
+        };
+
+        "custom/playerctl" = {
+          format = "<span>󰎈 {icon} {}</span>";
+          return-type = "json";
+          max-length = 50;
+          exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+          on-click = "playerctl play-pause";
+          on-click-right = "playerctl next";
+          tooltip = false;
+          format-icons = {
+            Playing = "<span> </span>";
+            Paused = "<span> </span>";
+            Stopped = "<span> </span>";
+          };
+        };
+        
+        "cava" = {
+          framerate = 60;
+          autosens = 0;
+          sensitivity = 10;
+          bars = 28;
+          lower_cutoff_freq = 50;
+          higher_cutoff_freq = 22000;
+          hide_on_silence = true;
+          method = "pipewire";
+          source = "auto";
+          stereo = true;
+          reverse = true;
+          bar_delimiter = 0;
+          monstercat = true;
+          waves = true;
+          noise_reduction = 0;
+          input_delay = 2;
+          format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+          actions = {
+            on-click-right = "mode";
+          };
+        };
+
+        "custom/uptime" = {
+          format = "{} ";
+          tooltip = false;
+          exec = "uptime | sed -e 's/.*up \\([^,]*\\).*/\\1/' | xargs";
+          interval = 5;
+        };
+         
         "clock" = {
           format = "{:%H:%M:%S}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
@@ -286,10 +403,8 @@
              #custom-playerctl,
              #custom-uptime,
              #window,
-             #battery,
              #workspaces,
              #cava,
-      #backlight,
              #tray {
         padding: 0 12px;
              }
@@ -314,10 +429,6 @@
         color: @lavender;
              }
 
-             #backlight {
-        color: @flamingo;
-             }
-
              #disk {
         color: @peach;
              }
@@ -338,7 +449,7 @@
         color: @red;
              }
 
-             #custome-media {
+             #custom-media {
         color: @teal;
              }
 
@@ -379,22 +490,6 @@
         color: @sapphire;
              }
 
-             #battery {
-        color: @text;
-             }
-
-             #battery.charging {
-        color: @green;
-             }
-
-             #battery.critical:not(.charging) {
-        color: @text;
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: steps(12);
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-             }
     '';
   };
 }

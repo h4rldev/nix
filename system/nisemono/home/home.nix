@@ -42,7 +42,9 @@
     yacreader
     deno
     alejandra
-    brightnessctl
+    xarchiver
+    imv
+    pavucontrol
   ];
 
   catppuccin.pointerCursor = {

@@ -12,10 +12,12 @@
       "eval \"$(ssh-agent -s)\""
     ];
 
-    "$monitor" = "eDP-1";
-    monitor = "$monitor, 1920x1080@60, auto, 1";
-
-    # exec-onces are gonna be here sooner or later.
+    "$monitor1" = "DP-2";
+    "$monitor2" = "HDMI-A-1";
+    monitor = [ 
+      "$monitor1, 2560x1440@165, 0x0, 1"
+      "$monitor2, 1680x1050@60, -1680x330, 1"
+    ];
 
     "$terminal" = "kitty";
     "$fileManager" = "pcmanfm";
@@ -25,10 +27,7 @@
     "$fullScreenshot" = "grimblast --notify --cursor --freeze copy output";
     "$cmdmenu" = "tofi-run | xargs hyprctl dispatch exec kitty";
     "$logout" = "nwg-bar";
-    "$brightnessUp" = "brightnessctl set 5%+";
-    "$brightnessDown" = "brightnessctl set 5%-";
-
-    "$volume" = "/home/h4rl/.bin/volume";
+    "$volume" = "/etc/nixos/.bin/volume";
 
     env = [
       "XCURSOR_SIZE, 24"
@@ -41,9 +40,9 @@
     input = {
       kb_layout = "se";
       follow_mouse = 1;
-      touchpad = {
-        scroll_factor = 0.2;
-      };
+      # touchpad = {
+      #  scroll_factor = 0.2;
+      # };
     };
 
     general = {
@@ -61,12 +60,12 @@
     decoration = {
       rounding = 5;
       blur = {
-        enabled = false;
+        enabled = true;
         size = 4;
         passes = 1;
       };
 
-      drop_shadow = false;
+      drop_shadow = true;
       shadow_range = 4;
       shadow_render_power = 3;
       "col.shadow" = "rgb(11111b)";
@@ -122,6 +121,9 @@
         "$mod, down, movefocus, d"
         "$mod, up, movefocus, u"
         "$mod, right, movefocus, r"
+        
+        "$mod CTRL, 1, movecurrentworkspacetomonitor, $monitor1"
+        "$mod CTRL, 2, movecurrentworkspacetomonitor, $monitor2"
 
         "$mod, mouse_up, workspace, e-1"
         "$mod, mouse_down, workspace, e+1"
@@ -144,14 +146,12 @@
       ", XF86AudioRaiseVolume, exec, $volume up"
       ", XF86AudioLowerVolume, exec, $volume down"
       ", XF86AudioMute, exec, $volume mute"
-      ", XF86MonBrightnessUp, exec, $brightnessUp"
-      ", XF86MonBrightnessDown, exec, $brightnessDown"
     ];
 
     bindl = [
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioNext, exec, playerctl next"
-      ", XF86AudioPewv, exec, playerctl previous"
+      ", XF86AudioPrev, exec, playerctl previous"
     ];
 
     bindm = [

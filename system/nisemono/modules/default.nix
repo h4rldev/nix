@@ -10,6 +10,6 @@
     ./networking.nix
     ./services.nix
     ./programs.nix
-    ./hardware.nix
+  # ./hardware.nix
   ];
 }

@@ -14,6 +14,7 @@
       openssl
       nodejs
       lshw
+      ntfs3g
     ];
 
     sessionVariables = {

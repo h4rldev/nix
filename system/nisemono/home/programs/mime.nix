@@ -5,6 +5,7 @@
     enable = true;
     associations.added = {
       "inode/directory" = ["pcmanfm.desktop"];
+      "application/zip" = ["xarchiver.desktop"];
       "x-scheme-handler/http" = ["floorp.desktop"];
       "x-scheme-handler/https" = ["floorp.desktop"];
       "text/html" = ["floorp.desktop"];
@@ -14,6 +15,7 @@
     };
     defaultApplications = {
       "inode/directory" = ["pcmanfm.desktop"];
+      "application/zip" = ["xarchiver.desktop"];
       "x-scheme-handler/http" = ["floorp.desktop"];
       "x-scheme-handler/https" = ["floorp.desktop"];
       "text/html" = ["floorp.desktop"];

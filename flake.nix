@@ -58,6 +58,34 @@
           ./system/suicide-box
         ];
       };
+      nisemono = nixpkgs.lib.nixosSystem {
+        inherit system;
+	modules = [
+	  ({pkgs, ...}: {
+            nixpkgs.config = {
+              allowUnfree = true;
+	      allowUnfreePredicate = _: true;
+	    };
+	  })
+	  catppuccin.nixosModules.catppuccin
+	  home-manager.nixosModules.home-manager
+	  {
+	    home-manager = {
+              useGlobalPkgs = true;
+	      useUserPackages = true;
+	      users.h4rl = {
+                imports = [
+                  catppuccin.homeManagerModules.catppuccin
+		  hyprland.homeManagerModules.default
+		  ./system/nisemono/home
+		];
+	      };
+	    };
+	  }
+	  ./global_modules
+	  ./system/nisemono
+	];
+      };
     };
   };
 }

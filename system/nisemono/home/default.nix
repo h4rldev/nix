@@ -5,8 +5,8 @@
   ...
 }: {
   imports = [
-    ./nix.nix
-    ./system.nix
-    ./environment.nix
+    ./home.nix
+    ./hyprland.nix
+    ./programs
   ];
 }
