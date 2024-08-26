@@ -1,10 +1,21 @@
-{pkgs, catppuccin, home, hyprland, ...}:
-
 {
+  pkgs,
+  catppuccin,
+  home,
+  hyprland,
+  ...
+}: {
   services = {
     network-manager-applet.enable = true;
     playerctld.enable = true;
     arrpc.enable = true;
+    keybase.enable = true;
+    kbfs.enable = true;
+  };
+
+  programs = {
+    mpv.enable = true;
+    imv.enable = true;
   };
 
   imports = [
@@ -23,5 +34,7 @@
     ./udiskie.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./wlogout.nix
+    ./xdg-portal.nix
   ];
 }

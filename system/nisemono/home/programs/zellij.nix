@@ -1,5 +1,10 @@
-{config, libs, pkgs, catppuccin, ...}:
-
+{
+  config,
+  libs,
+  pkgs,
+  catppuccin,
+  ...
+}:
 /*
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds {
@@ -367,11 +372,9 @@ plugins {
 //
 // disable_session_metadata true
 */
-
 {
   programs.zellij = {
     enable = true;
-    enableZshIntegration = true;
     catppuccin = {
       enable = true;
       flavor = "mocha";

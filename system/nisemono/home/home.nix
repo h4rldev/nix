@@ -24,7 +24,6 @@
     yacreader
     floorp
     libnotify
-    vesktop
     nerdfonts
     font-awesome
     wl-clipboard
@@ -33,7 +32,6 @@
     unzip
     zip
     luarocks
-    nwg-bar
     pcmanfm
     grimblast
     playerctl
@@ -43,8 +41,14 @@
     deno
     alejandra
     xarchiver
-    imv
     pavucontrol
+    vesktop
+    keybase-gui
+    cbonsai
+    onlyoffice-bin_latest
+    vscode
+    mullvad-browser
+    dissent
   ];
 
   catppuccin.pointerCursor = {

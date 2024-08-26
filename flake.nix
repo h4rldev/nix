@@ -8,6 +8,7 @@
     catppuccin.url = "github:catppuccin/nix";
     nixinate.url = "github:matthewcroughan/nixinate";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    xdg-desktop-portal-hyprland.url = "git+https://github.com/hyprwm/xdg-desktop-portal-hyprland?submodules=1";
   };
 
   outputs = {
@@ -17,6 +18,7 @@
     nixinate,
     home-manager,
     hyprland,
+    xdg-desktop-portal-hyprland,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -60,31 +62,31 @@
       };
       nisemono = nixpkgs.lib.nixosSystem {
         inherit system;
-	modules = [
-	  ({pkgs, ...}: {
+        modules = [
+          ({pkgs, ...}: {
             nixpkgs.config = {
               allowUnfree = true;
-	      allowUnfreePredicate = _: true;
-	    };
-	  })
-	  catppuccin.nixosModules.catppuccin
-	  home-manager.nixosModules.home-manager
-	  {
-	    home-manager = {
+              allowUnfreePredicate = _: true;
+            };
+          })
+          catppuccin.nixosModules.catppuccin
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
               useGlobalPkgs = true;
-	      useUserPackages = true;
-	      users.h4rl = {
+              useUserPackages = true;
+              users.h4rl = {
                 imports = [
                   catppuccin.homeManagerModules.catppuccin
-		  hyprland.homeManagerModules.default
-		  ./system/nisemono/home
-		];
-	      };
-	    };
-	  }
-	  ./global_modules
-	  ./system/nisemono
-	];
+                  hyprland.homeManagerModules.default
+                  ./system/nisemono/home
+                ];
+              };
+            };
+          }
+          ./global_modules
+          ./system/nisemono
+        ];
       };
     };
   };

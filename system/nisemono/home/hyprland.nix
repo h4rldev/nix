@@ -10,13 +10,15 @@
     exec-once = [
       "waybar"
       "eval \"$(ssh-agent -s)\""
+      "eddie-ui"
+      "hyprctl dispatch movecursor 1280 720"
     ];
 
     "$monitor1" = "DP-2";
     "$monitor2" = "HDMI-A-1";
-    monitor = [ 
-      "$monitor1, 2560x1440@165, 0x0, 1"
-      "$monitor2, 1680x1050@60, -1680x330, 1"
+    monitor = [
+      "$monitor1, 2560x1440@165, 0x0, 1, bitdepth, 10"
+      "$monitor2, 1680x1050@60, -1680x330, 1, bitdepth, 10"
     ];
 
     "$terminal" = "kitty";
@@ -26,7 +28,7 @@
     "$windowScreenshot" = "grimblast --notify --cursor --freeze copy active";
     "$fullScreenshot" = "grimblast --notify --cursor --freeze copy output";
     "$cmdmenu" = "tofi-run | xargs hyprctl dispatch exec kitty";
-    "$logout" = "nwg-bar";
+    "$logout" = "wlogout -b 4";
     "$volume" = "/etc/nixos/.bin/volume";
 
     env = [
@@ -43,6 +45,7 @@
       # touchpad = {
       #  scroll_factor = 0.2;
       # };
+      sensitivity = -0.5;
     };
 
     general = {
@@ -121,7 +124,7 @@
         "$mod, down, movefocus, d"
         "$mod, up, movefocus, u"
         "$mod, right, movefocus, r"
-        
+
         "$mod CTRL, 1, movecurrentworkspacetomonitor, $monitor1"
         "$mod CTRL, 2, movecurrentworkspacetomonitor, $monitor2"
 

@@ -1,6 +1,9 @@
-{config, pkgs, libs, ...}:
-
 {
+  config,
+  pkgs,
+  libs,
+  ...
+}: {
   programs.git = {
     enable = true;
     userName = "h4rl";
@@ -14,6 +17,9 @@
         "https://github.com/" = {
           insteadOf = "git@github.com:";
         };
+      };
+      init = {
+        defaultBranch = "main";
       };
     };
   };
