@@ -28,7 +28,7 @@
       package = pkgs.greetd.regreet;
       settings = {
         background = {
-          path = /etc/nixos/.wallpapers/lain.png;
+          path = /home/h4rl/.config/nix/.wallpapers/lain.png;
           fit = "Cover";
         };
 

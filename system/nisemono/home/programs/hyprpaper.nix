@@ -11,11 +11,11 @@
       splash = true;
       splash_offset = 2.0;
       preload = [
-        "/etc/nixos/.wallpapers/lain.png"
+        "/home/h4rl/.config/nix/.wallpapers/lain.png"
       ];
       wallpaper = [
-        "DP-2, /etc/nixos/.wallpapers/lain.png"
-        "HDMI-A-1, /etc/nixos/.wallpapers/lain.png"
+        "DP-2, /home/h4rl/.config/nix/.wallpapers/lain.png"
+        "HDMI-A-1, /home/h4rl/.config/nix/.wallpapers/lain.png"
       ];
     };
   };

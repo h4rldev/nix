@@ -30,11 +30,11 @@ handle_failure() {
         exit 1
 }
 
-pushd /etc/nixos/ >/dev/null || handle_failure "Failed to pushd" 
+pushd $HOME/.config/nix/ >/dev/null || handle_failure "Failed to pushd" 
 
 update_lock() {
         echo -e "${BLUE}>${CLEAR} Updating flake.lock.."
-        if sudo nix flake update; then
+        if nix flake update; then
                 echo -e "${GREEN}✓${CLEAR} Successfully updated flake.lock!"
         else
                 echo -e "${RED}!${CLEAR} Somecthing went wrong updating flake.lock! \nError code: ${?}"
