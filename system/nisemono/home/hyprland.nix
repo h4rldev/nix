@@ -17,8 +17,8 @@
     "$monitor1" = "DP-2";
     "$monitor2" = "HDMI-A-1";
     monitor = [
-      "$monitor1, 2560x1440@165, 0x0, 1, bitdepth, 10"
-      "$monitor2, 1680x1050@60, -1680x330, 1, bitdepth, 10"
+      "$monitor1, 2560x1440@165, 0x0, 1"
+      "$monitor2, 1680x1050@60, -1680x330, 1"
     ];
 
     "$terminal" = "kitty";

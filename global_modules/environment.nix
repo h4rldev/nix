@@ -22,5 +22,10 @@
       QT_QPA_PLATFORMTHEME = "qt6ct";
       EDITOR = "nvim";
     };
+
+    pathsToLink = [
+      "/share/xdg-desktop-portal"
+      "/share/applications"
+    ];
   };
 }
