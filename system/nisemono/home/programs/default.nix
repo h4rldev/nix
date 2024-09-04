@@ -2,6 +2,7 @@
   pkgs,
   catppuccin,
   home,
+  inputs,
   hyprland,
   ...
 }: {

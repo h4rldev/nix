@@ -45,10 +45,11 @@
     vesktop
     keybase-gui
     cbonsai
-    onlyoffice-bin_latest
+    nextcloud-client
     vscode
     mullvad-browser
-    dissent
+    obs-studio
+    kooha
   ];
 
   catppuccin.pointerCursor = {

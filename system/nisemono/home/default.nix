@@ -2,6 +2,8 @@
   pkgs,
   config,
   libs,
+  hyprland,
+  inputs,
   ...
 }: {
   imports = [

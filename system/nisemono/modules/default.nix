@@ -11,6 +11,7 @@
     ./networking.nix
     ./services.nix
     ./programs.nix
+    ./virtualisation.nix
     # ./hardware.nix
   ];
 }

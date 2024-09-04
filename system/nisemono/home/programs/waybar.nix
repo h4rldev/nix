@@ -110,11 +110,12 @@
             on-click-right = "mode";
           };
         };
- 
+
         "hyprland/window" = {
           max-length = 30;
           format = "{}";
-        }; 
+          separate-outputs = true;
+        };
 
         "tray" = {
           # "icon-size": 21,
@@ -127,7 +128,7 @@
           exec = "uptime | sed -e 's/.*up \\([^,]*\\).*/\\1/' | xargs";
           interval = 5;
         };
- 
+
         "disk" = {
           interval = 30;
           format = "{path} - {percentage_free}% ";
@@ -160,7 +161,7 @@
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
- 
+
         "clock" = {
           format = "{:%H:%M:%S}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
@@ -215,7 +216,7 @@
           max-length = 30;
           format = "{}";
         };
-        
+
         "hyprland/workspaces" = {
           on-scroll-up = "hyprctl dispatch workspace e+1";
           on-scroll-down = "hyprctl dispatch workspace e-1";
@@ -268,7 +269,7 @@
             Stopped = "<span> </span>";
           };
         };
-        
+
         "cava" = {
           framerate = 60;
           autosens = 0;
@@ -298,7 +299,7 @@
           exec = "uptime | sed -e 's/.*up \\([^,]*\\).*/\\1/' | xargs";
           interval = 5;
         };
-         
+
         "clock" = {
           format = "{:%H:%M:%S}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
@@ -327,168 +328,168 @@
       };
     };
     style = ''
-             @define-color base   #1e1e2e;
-             @define-color mantle #181825;
-             @define-color crust  #11111b;
+           @define-color base   #1e1e2e;
+           @define-color mantle #181825;
+           @define-color crust  #11111b;
 
-             @define-color text     #cdd6f4;
+           @define-color text     #cdd6f4;
 
-             @define-color surface0 #313244;
-             @define-color surface1 #45475a;
-             @define-color surface2 #585b70;
+           @define-color surface0 #313244;
+           @define-color surface1 #45475a;
+           @define-color surface2 #585b70;
 
-             @define-color blue      #89b4fa;
-             @define-color lavender  #b4befe;
-             @define-color sapphire  #74c7ec;
-             @define-color sky       #89dceb;
-             @define-color teal      #94e2d5;
-             @define-color green     #a6e3a1;
-             @define-color yellow    #f9e2af;
-             @define-color peach     #fab387;
-             @define-color maroon    #eba0ac;
-             @define-color red       #f38ba8;
-             @define-color mauve     #cba6f7;
-             @define-color pink      #f5c2e7;
-             @define-color flamingo  #f2cdcd;
-             @define-color rosewater #f5e0dc;
+           @define-color blue      #89b4fa;
+           @define-color lavender  #b4befe;
+           @define-color sapphire  #74c7ec;
+           @define-color sky       #89dceb;
+           @define-color teal      #94e2d5;
+           @define-color green     #a6e3a1;
+           @define-color yellow    #f9e2af;
+           @define-color peach     #fab387;
+           @define-color maroon    #eba0ac;
+           @define-color red       #f38ba8;
+           @define-color mauve     #cba6f7;
+           @define-color pink      #f5c2e7;
+           @define-color flamingo  #f2cdcd;
+           @define-color rosewater #f5e0dc;
 
-             * {
-        font-family: JetBrainsMono Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-             }
+           * {
+      font-family: JetBrainsMono Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+           }
 
-             window#waybar {
-        color: @text;
-        background-color: @base;
-        border-radius: 14px;
-        border: solid 3px @text;
-             }
+           window#waybar {
+      color: @text;
+      background-color: @base;
+      border-radius: 14px;
+      border: solid 3px @text;
+           }
 
-             window#waybar.hidden {
-        opacity: 0.2;
-             }
+           window#waybar.hidden {
+      opacity: 0.2;
+           }
 
-             button {
-        border: none;
-        border-radius: 0;
-             }
+           button {
+      border: none;
+      border-radius: 0;
+           }
 
-             button:hover {
-        color: @teal;
-             }
+           button:hover {
+      color: @teal;
+           }
 
-             #workspaces button {
-        padding-left: 2px;
-        padding-right: 5px;
-        background-color: transparent;
-        color: @text;
-             }
+           #workspaces button {
+      padding-left: 2px;
+      padding-right: 5px;
+      background-color: transparent;
+      color: @text;
+           }
 
-             #workspaces button:hover {
-        color: @teal;
-        background-color: rgba(0,0,0,0.2);
-             }
+           #workspaces button:hover {
+      color: @teal;
+      background-color: rgba(0,0,0,0.2);
+           }
 
-             #workspaces button.urgent {
+           #workspaces button.urgent {
+      color: @red;
+           }
+
+           #clock,
+           #cpu,
+           #memory,
+           #disk,
+           #temperature,
+           #network,
+           #pulseaudio,
+           #custom-playerctl,
+           #custom-uptime,
+           #window,
+           #workspaces,
+           #cava,
+           #tray {
+      padding: 0 12px;
+           }
+
+           .modules-left > widget:first-child > #workspaces {
+      margin-left: 0;
+           }
+
+           .modules-right > widget:first-child > #workspaces {
+      margin-right: 0;
+           }
+
+           #cpu {
+      color: @green;
+           }
+
+           #cava {
+             color: @maroon;
+           }
+
+           #memory {
+      color: @lavender;
+           }
+
+           #disk {
+      color: @peach;
+           }
+
+           #network {
+      color: @blue;
+           }
+
+           #network.disconnected {
+      color: @red;
+           }
+
+           #pulseaudio {
+      color: @yellow;
+           }
+
+           #pulseaudio.muted {
+      color: @red;
+           }
+
+           #custom-media {
+      color: @teal;
+           }
+
+           #clock {
+      color: @text;
+           }
+
+           #window {
+      color: @text;
+           }
+
+           #temperature {
+      color: @flamingo;
+           }
+
+
+           @keyframes blink {
+      to {
         color: @red;
-             }
+      }
+           }
 
-             #clock,
-             #cpu,
-             #memory,
-             #disk,
-             #temperature,
-             #network,
-             #pulseaudio,
-             #custom-playerctl,
-             #custom-uptime,
-             #window,
-             #workspaces,
-             #cava,
-             #tray {
-        padding: 0 12px;
-             }
-
-             .modules-left > widget:first-child > #workspaces {
-        margin-left: 0;
-             }
-
-             .modules-right > widget:first-child > #workspaces {
-        margin-right: 0;
-             }
-
-             #cpu {
-        color: @green;
-             }
-
-             #cava {
-               color: @maroon;
-             }
-
-             #memory {
-        color: @lavender;
-             }
-
-             #disk {
-        color: @peach;
-             }
-
-             #network {
-        color: @blue;
-             }
-
-             #network.disconnected {
-        color: @red;
-             }
-
-             #pulseaudio {
-        color: @yellow;
-             }
-
-             #pulseaudio.muted {
-        color: @red;
-             }
-
-             #custom-media {
-        color: @teal;
-             }
-
-             #clock {
-        color: @text;
-             }
-
-             #window {
-        color: @text;
-             }
-
-             #temperature {
-        color: @flamingo;
-             }
+           #temperature.critical {
+      color: @text;
+      animation-name: blink;
+      animation-duration: 0.5s;
+      animation-timing-function: steps(12);
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+           }
 
 
-             @keyframes blink {
-        to {
-          color: @red;
-        }
-             }
+           #custom-playerctl {
+      color: @teal;
+           }
 
-             #temperature.critical {
-        color: @text;
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: steps(12);
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-             }
-
-
-             #custom-playerctl {
-        color: @teal;
-             }
-
-             #custom-uptime {
-        color: @sapphire;
-             }
+           #custom-uptime {
+      color: @sapphire;
+           }
 
     '';
   };

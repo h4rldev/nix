@@ -47,6 +47,10 @@
       };
     };
 
+    virt-manager = {
+      enable = true;
+    };
+
     steam = {
       enable = true;
       remotePlay.openFirewall = true;

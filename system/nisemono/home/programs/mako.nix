@@ -1,12 +1,15 @@
-{pkgs, libs, config, ...}:
-
 {
+  pkgs,
+  libs,
+  config,
+  ...
+}: {
   services.mako = {
     enable = true;
     font = "JetBrainsMono Nerd Font";
     icons = true;
     maxIconSize = 128;
-    defaultTimeout = 300;
+    defaultTimeout = 2000;
     layer = "overlay";
     anchor = "bottom-right";
     backgroundColor = "#1e1e2e";

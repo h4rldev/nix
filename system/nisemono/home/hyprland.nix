@@ -29,7 +29,7 @@
     "$fullScreenshot" = "grimblast --notify --cursor --freeze copy output";
     "$cmdmenu" = "tofi-run | xargs hyprctl dispatch exec kitty";
     "$logout" = "wlogout -b 4";
-    "$volume" = "/etc/nixos/.bin/volume";
+    "$volume" = "/home/h4rl/.config/nix/.bin/volume";
 
     env = [
       "XCURSOR_SIZE, 24"

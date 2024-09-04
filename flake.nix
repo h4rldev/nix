@@ -2,13 +2,12 @@
   description = "h4rls system flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:/nixos/nixpkgs/master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
     nixinate.url = "github:matthewcroughan/nixinate";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    xdg-desktop-portal-hyprland.url = "git+https://github.com/hyprwm/xdg-desktop-portal-hyprland?submodules=1";
   };
 
   outputs = {
@@ -18,7 +17,6 @@
     nixinate,
     home-manager,
     hyprland,
-    xdg-desktop-portal-hyprland,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -34,6 +32,7 @@
     nixosConfigurations = {
       suicide-box = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = {inherit inputs;};
         modules = [
           ({pkgs, ...}: {
             nixpkgs.config = {
@@ -47,6 +46,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
               users.h4rl = {
                 imports = [
                   catppuccin.homeManagerModules.catppuccin
@@ -62,6 +62,7 @@
       };
       nisemono = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = {inherit inputs;};
         modules = [
           ({pkgs, ...}: {
             nixpkgs.config = {
@@ -75,6 +76,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
               users.h4rl = {
                 imports = [
                   catppuccin.homeManagerModules.catppuccin
