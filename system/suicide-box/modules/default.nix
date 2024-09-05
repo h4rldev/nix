@@ -2,7 +2,7 @@
   config,
   pkgs,
   catppuccin,
-  libs,
+  lib,
   ...
 }: {
   imports = [

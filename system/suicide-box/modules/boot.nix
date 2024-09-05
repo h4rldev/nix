@@ -1,18 +1,22 @@
 {
+  pkgs,
   config,
-  libs,
+  lib,
   catppuccin,
   ...
 }: {
-  boot.loader = {
-    grub = {
-      device = "nodev";
-      efiSupport = true;
-      catppuccin = {
-        enable = true;
-        flavor = "mocha";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      grub = {
+        device = "nodev";
+        efiSupport = true;
+        catppuccin = {
+          enable = true;
+          flavor = "mocha";
+        };
       };
+      efi.canTouchEfiVariables = true;
     };
-    efi.canTouchEfiVariables = true;
   };
 }

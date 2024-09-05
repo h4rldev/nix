@@ -10,6 +10,7 @@
     exec-once = [
       "waybar"
       "eval \"$(ssh-agent -s)\""
+      "hyprctl dispatch movecursor 960 540"
     ];
 
     "$monitor" = "eDP-1";
@@ -28,7 +29,7 @@
     "$brightnessUp" = "brightnessctl set 5%+";
     "$brightnessDown" = "brightnessctl set 5%-";
 
-    "$volume" = "/home/h4rl/.bin/volume";
+    "$volume" = "/home/h4rl/.config/nix/.bin/volume";
 
     env = [
       "XCURSOR_SIZE, 24"

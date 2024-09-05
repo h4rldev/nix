@@ -1,6 +1,6 @@
 {
   config,
-  libs,
+  lib,
   pkgs,
   catppuccin,
   ...
@@ -36,16 +36,16 @@
       package = pkgs.greetd.regreet;
       settings = {
         background = {
-          path = /etc/nixos/.wallpapers/lain.png;
+          path = /home/h4rl/.config/nix/.wallpapers/lain.png;
           fit = "Cover";
         };
 
         GTK = {
           application_prefer_dark_theme = true;
-          cursor_theme_name = "catppuccin-mocha-light-cursors";
-          font_name = "Cantarell 16";
-          icon_theme_name = "Papirus-Dark";
-          theme_name = "catppuccin-mocha-teal-standard+default";
+          cursor_theme_name = lib.mkForce "catppuccin-mocha-light-cursors";
+          font_name = lib.mkForce "Cantarell 16";
+          icon_theme_name = lib.mkForce "Papirus-Dark";
+          theme_name = lib.mkForce "catppuccin-mocha-teal-standard+default";
         };
 
         commands = {

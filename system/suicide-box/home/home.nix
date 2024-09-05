@@ -92,7 +92,7 @@
   };
 
   home.sessionPath = [
-    "/etc/nixos/"
+    "/home/h4rl/.config/nix/"
   ];
 
   # Let Home Manager install and manage itself.

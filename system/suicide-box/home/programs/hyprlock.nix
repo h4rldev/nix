@@ -20,7 +20,7 @@
       # BACKGROUND
       background = {
         monitor = "eDP-1";
-        path = "/etc/nixos/.wallpapers/lain.png";
+        path = "/home/h4rl/.config/nix/.wallpapers/lain.png";
         blur_passes = 0;
         color = "rgb(1e1e2e)";
       };
@@ -52,7 +52,7 @@
       # USER AVATAR
       image = {
         monitor = "eDP-1";
-        path = "/etc/nixos/.face/h4rl.png";
+        path = "/home/h4rl/.config/nix/.face/h4rl.png";
         size = 100;
         border_color = "$accent";
         position = "0, 75";
