@@ -2,7 +2,7 @@
   description = "h4rls system flake";
 
   inputs = {
-    nixpkgs.url = "github:/nixos/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
