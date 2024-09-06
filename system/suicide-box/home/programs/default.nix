@@ -1,6 +1,10 @@
-{pkgs, catppuccin, home, hyprland, ...}:
-
 {
+  pkgs,
+  catppuccin,
+  home,
+  hyprland,
+  ...
+}: {
   services = {
     network-manager-applet.enable = true;
     playerctld.enable = true;
@@ -23,5 +27,6 @@
     ./udiskie.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./fastfetch.nix
   ];
 }
