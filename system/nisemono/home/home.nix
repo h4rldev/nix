@@ -26,6 +26,11 @@
     libnotify
     nerdfonts
     font-awesome
+    noto-fonts
+    noto-fonts-cjk-serif
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    noto-fonts-emoji-blob-bin
     wl-clipboard
     just
     rustup
@@ -50,6 +55,8 @@
     mullvad-browser
     obs-studio
     kooha
+    tgpt
+    nicotine-plus
   ];
 
   catppuccin.pointerCursor = {

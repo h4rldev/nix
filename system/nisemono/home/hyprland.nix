@@ -100,6 +100,7 @@
     misc = {
       force_default_wallpaper = 1;
       vfr = true;
+      middle_click_paste = false;
     };
 
     "$mod" = "SUPER";

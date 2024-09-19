@@ -37,6 +37,6 @@
     ./hyprpaper.nix
     ./wlogout.nix
     ./xdg-portal.nix
-    ./transient-services.nix
+    ./fastfetch.nix
   ];
 }
