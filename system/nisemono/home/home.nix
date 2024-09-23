@@ -39,6 +39,7 @@
     luarocks
     pcmanfm
     grimblast
+    satty
     playerctl
     pwvucontrol
     deadbeef-with-plugins

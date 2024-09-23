@@ -9,16 +9,14 @@
     settings = {
       logo = {
         type = "kitty";
-        width = 28;
-        height = 28;
         source = "~/.config/nix/.fastfetch/logo.png";
       };
       display = {
         size.binaryPrefix = "si";
-        color = "blue";
-        separator = "  ";
+        color = "red";
+        separator = "  - ";
         constants = [
-          "─────────────────"
+          "──────────────────────"
         ];
         key = {
           type = "icon";
@@ -29,7 +27,7 @@
         {
           type = "custom"; # HardwareStart
           # {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
-          format = "┌{$1} {#1}Hardware Information{#} {$1}┐";
+          format = "┌{$1} {#1}hardware{#} {$1}┐";
         }
         "host"
         "cpu"
@@ -41,7 +39,7 @@
         "sound"
         {
           type = "custom"; # SoftwareStart
-          format = "├{$1} {#1}Software Information{#} {$1}┤";
+          format = "├{$1} {#1}software{#} {$1}┤";
         }
         {
           type = "title";
@@ -74,7 +72,7 @@
         "locale"
         {
           type = "custom"; # InformationEnd
-          format = "└{$1}──────────────────────{$1}┘";
+          format = "└{$1}──────────{$1}┘";
         }
         {
           type = "colors";

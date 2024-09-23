@@ -10,7 +10,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        output = "DP-2";
+        output = "DP-1";
         height = 36;
         width = 2528;
         margin-top = 6;

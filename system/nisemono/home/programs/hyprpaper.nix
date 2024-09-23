@@ -14,7 +14,7 @@
         "/home/h4rl/.config/nix/.wallpapers/lain.png"
       ];
       wallpaper = [
-        "DP-2, /home/h4rl/.config/nix/.wallpapers/lain.png"
+        "DP-1, /home/h4rl/.config/nix/.wallpapers/lain.png"
         "HDMI-A-1, /home/h4rl/.config/nix/.wallpapers/lain.png"
       ];
     };

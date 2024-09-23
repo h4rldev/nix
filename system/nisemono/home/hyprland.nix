@@ -14,7 +14,7 @@
       "hyprctl dispatch movecursor 1280 720"
     ];
 
-    "$monitor1" = "DP-2";
+    "$monitor1" = "DP-1";
     "$monitor2" = "HDMI-A-1";
     monitor = [
       "$monitor1, 2560x1440@165, 0x0, 1"
@@ -24,9 +24,9 @@
     "$terminal" = "kitty";
     "$fileManager" = "pcmanfm";
     "$menu" = "tofi-drun --drun-launch=true";
-    "$regionScreenshot" = "grimblast --notify --cursor --freeze copy area";
-    "$windowScreenshot" = "grimblast --notify --cursor --freeze copy active";
-    "$fullScreenshot" = "grimblast --notify --cursor --freeze copy output";
+    "$regionScreenshot" = "grimblast --notify --cursor --freeze save area - | satty --copy-command wl-copy --filename -";
+    "$windowScreenshot" = "grimblast --notify --cursor --freeze save active - | satty --copy-command wl-copy --filename -";
+    "$fullScreenshot" = "grimblast --notify --cursor --freeze save output - | satty --copy-command wl-copy --fullscreen --filename -";
     "$cmdmenu" = "tofi-run | xargs hyprctl dispatch exec kitty";
     "$logout" = "wlogout -b 4";
     "$volume" = "/home/h4rl/.config/nix/.bin/volume";

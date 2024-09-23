@@ -20,7 +20,7 @@
       # BACKGROUND
       background = [
         {
-          monitor = "DP-2";
+          monitor = "DP-1";
           path = "/home/h4rl/.config/nix/.wallpapers/lain.png";
           blur_passes = 0;
           color = "rgb(1e1e2e)";
@@ -36,7 +36,7 @@
       # TIME
       label = [
         {
-          monitor = "DP-2";
+          monitor = "DP-1";
           text = "cmd[update:30000] echo \"$(date +\"%R\")\"";
           color = "rgb(cdd6f4)";
           font_size = 90;
@@ -46,7 +46,7 @@
           valign = "top";
         }
         {
-          monitor = "DP-2";
+          monitor = "DP-1";
           text = "cmd[update:43200000] echo \"$(date +\"%A, %d %B %Y\")\"";
           color = "rgb(cdd6f4)";
           font_size = 25;
@@ -59,7 +59,7 @@
 
       # USER AVATAR
       image = {
-        monitor = "DP-2";
+        monitor = "DP-1";
         path = "/home/h4rl/.config/nix/.face/h4rl.png";
         size = 100;
         border_color = "$accent";
@@ -70,7 +70,7 @@
 
       # INPUT FIELD
       input-field = {
-        monitor = "DP-2";
+        monitor = "DP-1";
         size = "300, 60";
         outline_thickness = 4;
         dots_size = 0.2;
