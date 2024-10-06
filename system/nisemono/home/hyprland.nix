@@ -8,10 +8,11 @@
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "waybar"
-      "eval \"$(ssh-agent -s)\""
-      "eddie-ui"
-      "hyprctl dispatch movecursor 1280 720"
+      "waybar &"
+      "eval \"$(ssh-agent -s)\" &"
+      "eddie-ui &"
+      "hyprctl dispatch movecursor 1280 720 &"
+      "pypr &"
     ];
 
     "$monitor1" = "DP-1";
@@ -103,6 +104,10 @@
       middle_click_paste = false;
     };
 
+    workspace = [
+      "special:exposed,gapsout:60,gapsin:30,bordersize:5,border:true,shadow:false"
+    ];
+
     "$mod" = "SUPER";
     bind =
       [
@@ -129,8 +134,18 @@
         "$mod CTRL, 1, movecurrentworkspacetomonitor, $monitor1"
         "$mod CTRL, 2, movecurrentworkspacetomonitor, $monitor2"
 
-        "$mod, mouse_up, workspace, e-1"
-        "$mod, mouse_down, workspace, e+1"
+	"$mod, K, exec, pypr change_workspace +1"
+	"$mod, J, exec, pypr change_workspace -1"
+
+	"$mod, mouse_up, exec, pypr zoom -1"
+	"$mod, mouse_down, exec, pypr zoom +1"
+	"$mod, z, exec, pypr zoom"
+
+	"$mod, B, exec, pypr expose"
+
+	"$mod, V, exec, pypr toggle volume"
+	"$mod, A, exec, pypr toggle term"
+	"$mod, Y, exec, pypr attach"
       ]
       ++ (
         builtins.concatLists (builtins.genList (

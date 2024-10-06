@@ -31,6 +31,7 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     noto-fonts-emoji-blob-bin
+    emacs-all-the-icons-fonts
     wl-clipboard
     just
     rustup
@@ -47,17 +48,16 @@
     deno
     alejandra
     xarchiver
-    pavucontrol
     vesktop
     keybase-gui
-    cbonsai
     nextcloud-client
     vscode
     mullvad-browser
     obs-studio
     kooha
-    tgpt
     nicotine-plus
+    pyprland
+    riseup-vpn
   ];
 
   catppuccin.pointerCursor = {
