@@ -40,7 +40,7 @@
           on-scroll-down = "hyprctl dispatch workspace e-1";
           format = "{icon}";
           format-icons = {
-            "1" = "";
+            "1" = "";
             "2" = "󰖟";
             "3" = "󰅺";
             "4" = "󰎆";
@@ -222,7 +222,7 @@
           on-scroll-down = "hyprctl dispatch workspace e-1";
           format = "{icon}";
           format-icons = {
-            "1" = "";
+            "1" = "";
             "2" = "󰖟";
             "3" = "󰅺";
             "4" = "󰎆";

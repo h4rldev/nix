@@ -38,5 +38,6 @@
     ./wlogout.nix
     ./xdg-portal.nix
     ./fastfetch.nix
+    ./emacs.nix
   ];
 }
