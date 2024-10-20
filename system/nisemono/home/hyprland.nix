@@ -22,7 +22,7 @@
       "$monitor2, 1680x1050@60, -1680x330, 1"
     ];
 
-    "$terminal" = "kitty";
+    "$terminal" = "wezterm";
     "$fileManager" = "pcmanfm";
     "$menu" = "tofi-drun --drun-launch=true";
     "$regionScreenshot" = "grimblast --notify --cursor --freeze save area - | satty --copy-command wl-copy --filename -";

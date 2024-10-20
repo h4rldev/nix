@@ -29,7 +29,7 @@
     ./mako.nix
     ./mime.nix
     ./tofi.nix
-    ./wezterm.nix
+    ./foot.nix
     ./waybar.nix
     ./zellij.nix
     ./udiskie.nix
