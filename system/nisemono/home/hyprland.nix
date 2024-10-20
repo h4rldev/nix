@@ -42,6 +42,7 @@
 
     input = {
       kb_layout = "se";
+      kb_options = "ctrl:nocaps";
       follow_mouse = 1;
       # touchpad = {
       #  scroll_factor = 0.2;
@@ -134,18 +135,18 @@
         "$mod CTRL, 1, movecurrentworkspacetomonitor, $monitor1"
         "$mod CTRL, 2, movecurrentworkspacetomonitor, $monitor2"
 
-	"$mod, K, exec, pypr change_workspace +1"
-	"$mod, J, exec, pypr change_workspace -1"
+        "$mod, K, exec, pypr change_workspace +1"
+        "$mod, J, exec, pypr change_workspace -1"
 
-	"$mod, mouse_up, exec, pypr zoom -1"
-	"$mod, mouse_down, exec, pypr zoom +1"
-	"$mod, z, exec, pypr zoom"
+        "$mod, mouse_up, exec, pypr zoom -1"
+        "$mod, mouse_down, exec, pypr zoom +1"
+        "$mod, z, exec, pypr zoom"
 
-	"$mod, B, exec, pypr expose"
+        "$mod, B, exec, pypr expose"
 
-	"$mod, V, exec, pypr toggle volume"
-	"$mod, A, exec, pypr toggle term"
-	"$mod, Y, exec, pypr attach"
+        "$mod, V, exec, pypr toggle volume"
+        "$mod, A, exec, pypr toggle term"
+        "$mod, Y, exec, pypr attach"
       ]
       ++ (
         builtins.concatLists (builtins.genList (

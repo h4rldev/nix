@@ -49,6 +49,7 @@
               useUserPackages = true;
               extraSpecialArgs = {inherit inputs;};
               users.h4rl = {
+                home.homeDirectory = "/home/h4rl";
                 imports = [
                   catppuccin.homeManagerModules.catppuccin
                   hyprland.homeManagerModules.default
@@ -79,6 +80,7 @@
               useUserPackages = true;
               extraSpecialArgs = {inherit inputs;};
               users.h4rl = {
+                home.homeDirectory = "/home/h4rl";
                 imports = [
                   catppuccin.homeManagerModules.catppuccin
                   hyprland.homeManagerModules.default

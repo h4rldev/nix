@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-__NAME__="h4rl's nix configuration: update.sh"
+__NAME__="h4rl's nix configuration: update-nix"
 __AUTHOR__="h4rl"
 __DESCRIPTION__="Updates the flake lock and applies the configuration to the system."
 __LICENSE__="BSD 3-Clause License"

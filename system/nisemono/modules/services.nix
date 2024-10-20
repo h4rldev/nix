@@ -46,7 +46,7 @@ in {
       enable = true;
       settings = rec {
         initial_session = {
-          command = "hyprland --config ${hyprlandConfig}";
+          command = "Hyprland --config ${hyprlandConfig}";
           user = "h4rl";
         };
         default_session = initial_session;

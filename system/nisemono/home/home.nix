@@ -54,10 +54,15 @@
     vscode
     mullvad-browser
     obs-studio
-    kooha
     nicotine-plus
     pyprland
     riseup-vpn
+    wakatime
+    qbittorrent
+    keepassxc
+    picard
+    dolphin-emu
+    sshfs
   ];
 
   catppuccin.pointerCursor = {
