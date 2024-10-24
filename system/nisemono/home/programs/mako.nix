@@ -1,30 +1,21 @@
 {
-  config,
   pkgs,
   libs,
+  config,
   ...
 }: {
-  programs.tofi = {
+  services.mako = {
     enable = true;
-    settings = {
-      font = "JetBrainsMono Nerd Font";
-      font-size = 18;
-
-      prompt-text = ">";
-      prompt-padding = 10;
-      border-width = 4;
-      outline-width = 0;
-      width = "75%";
-      height = "50%";
-      corner-radius = 15;
-
-      text-cursor = true;
-      text-color = "#cdd6f4";
-      text-cursor-color = "#f38ba8";
-      prompt-color = "#f38ba8";
-      selection-color = "#cba6f7";
-      border-color = "#94e2d5cc";
-      background-color = "#1e1e2eCC";
-    };
+    font = "JetBrainsMono Nerd Font";
+    icons = true;
+    maxIconSize = 128;
+    defaultTimeout = 2000;
+    layer = "overlay";
+    anchor = "bottom-right";
+    backgroundColor = "#1e1e2e";
+    textColor = "#cdd6f4";
+    borderColor = "#89b4fa";
+    progressColor = "over #313244";
+    extraConfig = "[urgency=high]\nborder-color=#fab387";
   };
 }
