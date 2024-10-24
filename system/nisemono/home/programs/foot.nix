@@ -10,8 +10,7 @@
     server.enable = true;
     settings = {
       main = {
-        term = "xterm-256color";
-        font = "JetBrainMono Nerd Font:size=11";
+        font = "JetBrainsMono Nerd Font:size=11";
         dpi-aware = "yes";
       };
 
@@ -20,7 +19,9 @@
       };
       
       cursor = {
-        color = ["11111b" "f5e0dc"]:
+        color = "11111b f5e0dc";
+        style = "beam";
+        unfocused-style = "hollow";
       };
 
       colors = {
@@ -45,16 +46,16 @@
         bright6 = "94e2d5";
         bright7 = "a6adc8";
 
-        16 = "fab387";
-        17 = "f5e0dc";
+        "16" = "fab387";
+        "17" = "f5e0dc";
 
         selection-foreground = "cdd6f4";
         selection-background = "414356";
 
-        search-box-no-match = ["11111b" "f38ba8"];
-        search-box-match = ["cdd6f4" "313244"];
+        search-box-no-match = "11111b f38ba8";
+        search-box-match = "cdd6f4 313244";
 
-        jump-labels = ["11111b" "fab387"];
+        jump-labels = "11111b fab387";
         urls = "89b4fa";
       };
     };

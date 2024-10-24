@@ -1,6 +1,10 @@
-{pkgs, config, libs, catppuccin, ...}:
-
 {
+  pkgs,
+  config,
+  libs,
+  catppuccin,
+  ...
+}: {
   qt = {
     enable = true;
     platformTheme = {
@@ -9,9 +13,9 @@
     style = {
       name = "kvantum";
       catppuccin = {
-	enable = true;
-	flavor = "mocha";
-	accent = "teal";
+        enable = true;
+        flavor = "mocha";
+        accent = "teal";
       };
     };
   };

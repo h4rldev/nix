@@ -63,6 +63,8 @@
     picard
     dolphin-emu
     sshfs
+    prismlauncher
+    brave
   ];
 
   catppuccin.pointerCursor = {

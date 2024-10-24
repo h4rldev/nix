@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   nix = {
-    package = pkgs.nixFlakes;
     optimise.automatic = true;
     settings = {
       substituters = ["https://hyprland.cachix.org"];

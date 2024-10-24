@@ -10,7 +10,6 @@
     exec-once = [
       "waybar &"
       "eval \"$(ssh-agent -s)\" &"
-      "eddie-ui &"
       "hyprctl dispatch movecursor 1280 720 &"
       "pypr &"
     ];
@@ -22,7 +21,7 @@
       "$monitor2, 1680x1050@60, -1680x330, 1"
     ];
 
-    "$terminal" = "wezterm";
+    "$terminal" = "foot";
     "$fileManager" = "pcmanfm";
     "$menu" = "tofi-drun --drun-launch=true";
     "$regionScreenshot" = "grimblast --notify --cursor --freeze save area - | satty --copy-command wl-copy --filename -";
@@ -112,7 +111,7 @@
     "$mod" = "SUPER";
     bind =
       [
-        "$mod, T, exec, kitty"
+        "$mod, T, exec, $terminal"
         "$mod, W, killactive,"
         "CTRL, Print, exec, $regionScreenshot"
         "SHIFT, Print, exec, $windowScreenshot"

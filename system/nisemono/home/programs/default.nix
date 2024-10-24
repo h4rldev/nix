@@ -26,9 +26,8 @@
     ./gtk.nix
     ./qt.nix
     ./zsh.nix
-    ./mako.nix
     ./mime.nix
-    ./tofi.nix
+    ./fuzzel.nix
     ./foot.nix
     ./waybar.nix
     ./zellij.nix

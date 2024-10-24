@@ -2,13 +2,14 @@
   description = "h4rls system flake";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs?ref=master";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs?ref=master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
     nixinate.url = "github:matthewcroughan/nixinate";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    prism-launcher.url = "github:PrismLauncher/PrismLauncher";
   };
 
   outputs = {
@@ -18,6 +19,7 @@
     nixinate,
     home-manager,
     hyprland,
+    prism-launcher,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -28,6 +30,10 @@
         allowUnfreePredicate = _: true;
       };
     };
+    overlays = [
+      hyprland.overlays.default
+      prism-launcher.overlays.default
+    ];
   in rec {
     apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations = {
@@ -35,6 +41,9 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
+          {
+            nixpkgs.overlays = overlays;
+          }
           ({pkgs, ...}: {
             nixpkgs.config = {
               allowUnfree = true;
@@ -66,6 +75,9 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
+          {
+            nixpkgs.overlays = overlays;
+          }
           ({pkgs, ...}: {
             nixpkgs.config = {
               allowUnfree = true;
