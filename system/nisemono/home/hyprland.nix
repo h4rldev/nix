@@ -23,7 +23,7 @@
 
     "$terminal" = "foot";
     "$fileManager" = "pcmanfm";
-    "$menu" = "tofi-drun --drun-launch=true";
+    "$menu" = "fuzzel";
     "$regionScreenshot" = "grimblast --notify --cursor --freeze save area - | satty --copy-command wl-copy --filename -";
     "$windowScreenshot" = "grimblast --notify --cursor --freeze save active - | satty --copy-command wl-copy --filename -";
     "$fullScreenshot" = "grimblast --notify --cursor --freeze save output - | satty --copy-command wl-copy --fullscreen --filename -";

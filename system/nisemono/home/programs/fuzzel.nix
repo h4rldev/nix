@@ -12,7 +12,7 @@
         layer = "overlay";
         font = "JetBrainsMono Nerd Font:size=12";
         dpi-aware = "yes";
-        show-actions = "yes";
+        # show-actions = "yes";
         width = 100;
       };
 
