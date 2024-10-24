@@ -38,5 +38,6 @@
     ./xdg-portal.nix
     ./fastfetch.nix
     ./emacs.nix
+    ./mako.nix
   ];
 }
