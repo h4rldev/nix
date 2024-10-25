@@ -43,6 +43,7 @@
     deno
     alejandra
     brightnessctl
+    brave
   ];
 
   catppuccin.pointerCursor = {

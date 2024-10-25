@@ -20,7 +20,7 @@
     ./zsh.nix
     ./mako.nix
     ./mime.nix
-    ./tofi.nix
+    ./fuzzel.nix
     ./kitty.nix
     ./waybar.nix
     ./zellij.nix

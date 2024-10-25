@@ -36,7 +36,7 @@
       package = pkgs.greetd.regreet;
       settings = {
         background = {
-          path = /home/h4rl/.config/nix/.wallpapers/lain.png;
+          path = "${config.users.users.h4rl.home}/.config/nix/.wallpapers/lain.png";
           fit = "Cover";
         };
 

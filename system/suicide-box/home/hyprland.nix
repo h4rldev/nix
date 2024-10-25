@@ -20,7 +20,7 @@
 
     "$terminal" = "kitty";
     "$fileManager" = "pcmanfm";
-    "$menu" = "tofi-drun --drun-launch=true";
+    "$menu" = "fuzzel";
     "$regionScreenshot" = "grimblast --notify --cursor --freeze copy area";
     "$windowScreenshot" = "grimblast --notify --cursor --freeze copy active";
     "$fullScreenshot" = "grimblast --notify --cursor --freeze copy output";
