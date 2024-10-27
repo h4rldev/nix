@@ -21,7 +21,7 @@
       "$monitor2, 1680x1050@60, -1680x330, 1"
     ];
 
-    "$terminal" = "foot";
+    "$terminal" = "footclient";
     "$fileManager" = "pcmanfm";
     "$menu" = "fuzzel";
     "$regionScreenshot" = "grimblast --notify --cursor --freeze save area - | satty --copy-command wl-copy --filename -";

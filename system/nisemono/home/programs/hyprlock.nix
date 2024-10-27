@@ -21,13 +21,13 @@
       background = [
         {
           monitor = "DP-1";
-          path = "/home/h4rl/.config/nix/.wallpapers/lain.png";
+          path = "${config.home.homeDirectory}/.config/nix/.wallpapers/bliss.jpg";
           blur_passes = 0;
           color = "rgb(1e1e2e)";
         }
         {
           monitor = "HDMI-A-1";
-          path = "/home/h4rl/.config/nix/.wallpapers/lain.png";
+          path = "${config.home.homeDirectory}/.config/nix/.wallpapers/lain.png";
           blur_passes = 0;
           color = "rgb(1e1e2e)";
         }

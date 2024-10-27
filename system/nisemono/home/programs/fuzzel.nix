@@ -10,7 +10,7 @@
       main = {
         terminal = "${pkgs.foot}/bin/foot";
         layer = "overlay";
-        font = "JetBrainsMono Nerd Font:size=12";
+        font = "JetBrainsMono Nerd Font:size=16";
         dpi-aware = "yes";
         # show-actions = "yes";
         width = 100;

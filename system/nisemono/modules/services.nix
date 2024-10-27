@@ -70,5 +70,6 @@ in {
     gnome = {
       gnome-keyring.enable = true;
     };
+    flatpak.enable = true;
   };
 }
