@@ -16,6 +16,11 @@
       "text/css" = ["brave-browser.desktop"];
       "text/javascript" = ["brave-browser.desktop"];
       "application/pdf" = ["brave-browser.desktop"];
+      "x-osu-skin-archive" = ["osu!.desktop"];
+      "x-osu-beatmap-archive" = ["osu!.desktop"];
+      "x-osu-beatmap" = ["osu!.desktop"];
+      "x-osu-storyboard" = ["osu!.desktop"];
+      "x-osu-replay" = ["osu!.desktop"];
     };
     defaultApplications = {
       "inode/directory" = ["pcmanfm.desktop"];
@@ -26,6 +31,11 @@
       "text/css" = ["brave-browser.desktop"];
       "text/javascript" = ["brave-browser.desktop"];
       "application/pdf" = ["brave-browser.desktop"];
+      "x-osu-skin-archive" = ["osu!.desktop"];
+      "x-osu-beatmap-archive" = ["osu!.desktop"];
+      "x-osu-beatmap" = ["osu!.desktop"];
+      "x-osu-storyboard" = ["osu!.desktop"];
+      "x-osu-replay" = ["osu!.desktop"];
     };
   };
 }

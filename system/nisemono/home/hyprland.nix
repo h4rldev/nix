@@ -8,10 +8,9 @@
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "waybar &"
-      "eval \"$(ssh-agent -s)\" &"
       "hyprctl dispatch movecursor 1280 720 &"
       "pypr &"
+      "mullvad-vpn &"
     ];
 
     "$monitor1" = "DP-1";
@@ -32,7 +31,8 @@
     "$volume" = "/home/h4rl/.config/nix/.bin/volume";
 
     env = [
-      "XCURSOR_SIZE, 24"
+      "XCURSOR_SIZE, 18"
+      "HYPRCURSOR_SIZE, 18"
     ];
 
     debug = {
@@ -69,10 +69,12 @@
         passes = 1;
       };
 
-      drop_shadow = true;
-      shadow_range = 4;
-      shadow_render_power = 3;
-      "col.shadow" = "rgb(11111b)";
+      shadow = {
+        enabled = true;
+        range = 4;
+        render_power = 3;
+        color = "rgb(11111b)";
+      };
     };
 
     animations = {

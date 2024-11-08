@@ -7,7 +7,10 @@
   security = {
     pam = {
       services = {
-        greetd.kwallet.enable = true;
+        greetd.kwallet = {
+          enable = true;
+          forceRun = true;
+        };
       };
     };
   };

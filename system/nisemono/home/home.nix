@@ -65,6 +65,16 @@
     sshfs
     prismlauncher
     brave
+    # steam-run
+    osu-lazer-bin
+    plex-desktop
+    plexamp
+    tigervnc
+    onlyoffice-bin_latest
+    lua
+    ripgrep
+    ripgrep-all
+    tree-sitter
   ];
 
   catppuccin.pointerCursor = {

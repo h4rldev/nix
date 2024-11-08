@@ -7,8 +7,6 @@
   pkgs,
   ...
 }: {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

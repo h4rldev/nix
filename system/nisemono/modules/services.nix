@@ -71,5 +71,10 @@ in {
       gnome-keyring.enable = true;
     };
     flatpak.enable = true;
+
+    mullvad-vpn = {
+      enable = true;
+      package = pkgs.mullvad-vpn;
+    };
   };
 }
