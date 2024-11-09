@@ -24,7 +24,6 @@
     "$regionScreenshot" = "grimblast --notify --cursor --freeze copy area";
     "$windowScreenshot" = "grimblast --notify --cursor --freeze copy active";
     "$fullScreenshot" = "grimblast --notify --cursor --freeze copy output";
-    "$cmdmenu" = "tofi-run | xargs hyprctl dispatch exec kitty";
     "$logout" = "nwg-bar";
     "$brightnessUp" = "brightnessctl set 5%+";
     "$brightnessDown" = "brightnessctl set 5%-";
@@ -115,7 +114,6 @@
         "$mod SHIFT, F, fullscreenstate, 2 2"
         "$mod CTRL, F, fullscreenstate, -1 2"
         "$mod, D, exec, $menu"
-        "$mod, R, exec, $cmdmenu"
         "$mod, P, pseudo,"
         "$mod, S, togglesplit,"
 

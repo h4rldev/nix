@@ -8,8 +8,8 @@
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [25565];
+  networking.firewall.allowedUDPPorts = [25565];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 }

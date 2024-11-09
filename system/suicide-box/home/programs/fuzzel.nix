@@ -13,7 +13,7 @@
         font = "JetBrainsMono Nerd Font:size=12";
         dpi-aware = "yes";
         # show-actions = "yes";
-        width = 100;
+        width = 70;
       };
 
       colors = {

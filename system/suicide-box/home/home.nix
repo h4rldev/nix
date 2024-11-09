@@ -44,6 +44,7 @@
     alejandra
     brightnessctl
     brave
+    xarchiver
   ];
 
   catppuccin.pointerCursor = {

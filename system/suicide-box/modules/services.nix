@@ -1,7 +1,7 @@
 {
   pkgs,
   config,
-  libs,
+  lib,
   ...
 }: let
   hyprlandConfig = pkgs.writeText "greetd-hyprland-condig" ''
@@ -43,6 +43,10 @@ in {
     pipewire = {
       enable = true;
       pulse.enable = true;
+    };
+    mullvad-vpn = {
+      enable = true;
+      package = pkgs.mullvad-vpn;
     };
   };
 }
