@@ -2,7 +2,6 @@
   pkgs,
   config,
   libs,
-  catppuccin,
   ...
 }: {
   qt = {
@@ -12,11 +11,6 @@
     };
     style = {
       name = "kvantum";
-      catppuccin = {
-        enable = true;
-        flavor = "mocha";
-        accent = "teal";
-      };
     };
   };
 }

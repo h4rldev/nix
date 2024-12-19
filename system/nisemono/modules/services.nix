@@ -9,7 +9,9 @@
 
     exec-once=hyprctl dispatch movecursor 1280 720
 
-    env = XCURSOR_SIZE,24
+    env = XCURSOR_SIZE,18
+    env = HYPRCURSOR_SIZE,18
+
     animations {
       enabled = no
     }
@@ -18,7 +20,7 @@
       force_default_wallpaper = 0 # Set to 0 to disable the anime mascot wallpapers
     }
 
-    $setMouse = hyprctl setcursor catppuccin-mocha-light 24
+    $setMouse = hyprctl setcursor catppuccin-mocha-light-cursors 18
     exec-once = $setMouse & ${config.programs.regreet.package}/bin/regreet; hyprctl dispatch exit
   '';
 in {
@@ -76,5 +78,7 @@ in {
       enable = true;
       package = pkgs.mullvad-vpn;
     };
+
+    ratbagd.enable = true;
   };
 }

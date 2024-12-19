@@ -13,5 +13,6 @@
     ./programs.nix
     ./virtualisation.nix
     ./security.nix
+    ./catppuccin.nix
   ];
 }

@@ -39,5 +39,6 @@
     ./fastfetch.nix
     ./emacs.nix
     ./mako.nix
+    ./catppuccin.nix
   ];
 }

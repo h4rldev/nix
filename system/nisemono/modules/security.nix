@@ -8,8 +8,8 @@
     pam = {
       services = {
         greetd.kwallet = {
-          enable = true;
-          forceRun = true;
+          enable = false;
+          forceRun = false;
         };
       };
     };

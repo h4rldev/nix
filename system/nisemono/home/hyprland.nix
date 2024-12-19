@@ -23,15 +23,13 @@
     "$terminal" = "footclient";
     "$fileManager" = "pcmanfm";
     "$menu" = "fuzzel";
-    "$regionScreenshot" = "grimblast --notify --cursor --freeze save area - | satty --copy-command wl-copy --filename -";
-    "$windowScreenshot" = "grimblast --notify --cursor --freeze save active - | satty --copy-command wl-copy --filename -";
-    "$fullScreenshot" = "grimblast --notify --cursor --freeze save output - | satty --copy-command wl-copy --fullscreen --filename -";
-    "$cmdmenu" = "tofi-run | xargs hyprctl dispatch exec kitty";
+    "$regionScreenshot" = "grimblast --notify --freeze save area - | satty --copy-command wl-copy --filename -";
+    "$windowScreenshot" = "grimblast --notify --freeze save active - | satty --copy-command wl-copy --filename -";
+    "$fullScreenshot" = "grimblast --notify --freeze save output - | satty --copy-command wl-copy --fullscreen --filename -";
     "$logout" = "wlogout -b 4";
     "$volume" = "/home/h4rl/.config/nix/.bin/volume";
 
     env = [
-      "XCURSOR_SIZE, 18"
       "HYPRCURSOR_SIZE, 18"
     ];
 
@@ -46,7 +44,7 @@
       # touchpad = {
       #  scroll_factor = 0.2;
       # };
-      sensitivity = -0.5;
+      sensitivity = 0;
     };
 
     general = {

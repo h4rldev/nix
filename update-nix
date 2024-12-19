@@ -18,16 +18,26 @@ if ${COLOR}; then
         CLEAR="${ESCAPE}[0m"
 fi
 
+
+case $3 in 
+"-mem" | "--memory" | "slow")
+  MAX_JOBS="--max-jobs 2"
+  ;;
+*)
+  MAX_JOBS=""
+  ;;
+esac
+
 handle_failure() {
-        local MESSAGE="${1}"
+  local MESSAGE="${1}"
 
-        if [[ -z ${MESSAGE} ]]; then
-                echo "${RED}!${CLEAR} No failure message provided, are you using this right?"
-                exit 1
-        fi
+  if [[ -z ${MESSAGE} ]]; then
+    echo "${RED}!${CLEAR} No failure message provided, are you using this right?"
+    exit 1
+  fi
 
-        echo "${RED}!${CLEAR} ${MESSAGE}${CLEAR}"
-        exit 1
+  echo "${RED}!${CLEAR} ${MESSAGE}${CLEAR}"
+  exit 1
 }
 
 pushd $HOME/.config/nix/ >/dev/null || handle_failure "Failed to pushd" 
@@ -47,7 +57,7 @@ rebuild() {
         SUB_CMD=${2:-"switch"}
         
         echo -e "${BLUE}>${CLEAR} Rebuilding the NixOS configuration.."
-        if sudo nixos-rebuild "${SUB_CMD}" --flake '.#'; then
+        if sudo nixos-rebuild "${SUB_CMD}" --flake '.#' ${MAX_JOBS}; then
                 echo -e "${GREEN}✓${CLEAR} Successfully reconfigured!"
         else
                 echo -e "${RED}!${CLEAR} Somecthing went wrong reconfiguring! \nError code: ${?}"

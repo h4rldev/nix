@@ -20,72 +20,82 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    yacreader
-    floorp
-    libnotify
-    nerdfonts
-    font-awesome
-    noto-fonts
-    noto-fonts-cjk-serif
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    noto-fonts-emoji-blob-bin
-    emacs-all-the-icons-fonts
-    wl-clipboard
-    just
-    rustup
-    unzip
-    zip
-    luarocks
-    pcmanfm
-    grimblast
-    satty
-    playerctl
-    pwvucontrol
-    deadbeef-with-plugins
-    yacreader
-    deno
-    alejandra
-    xarchiver
-    vesktop
-    keybase-gui
-    nextcloud-client
-    vscode
-    mullvad-browser
-    obs-studio
-    nicotine-plus
-    pyprland
-    riseup-vpn
-    wakatime
-    qbittorrent
-    keepassxc
-    picard
-    dolphin-emu
-    sshfs
-    prismlauncher
-    brave
-    # steam-run
-    osu-lazer-bin
-    plex-desktop
-    plexamp
-    tigervnc
-    onlyoffice-bin_latest
-    lua
-    ripgrep
-    ripgrep-all
-    tree-sitter
-  ];
+  home.packages = with pkgs;
+    [
+      yacreader
+      floorp
+      libnotify
+      font-awesome
+      noto-fonts
+      noto-fonts-cjk-serif
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      noto-fonts-emoji-blob-bin
+      emacs-all-the-icons-fonts
+      wl-clipboard
+      just
+      rustup
+      unzip
+      zip
+      luarocks
+      pcmanfm
+      grimblast
+      satty
+      playerctl
+      pwvucontrol
+      deadbeef-with-plugins
+      yacreader
+      deno
+      alejandra
+      xarchiver
+      vesktop
+      equibop
+      keybase-gui
+      nextcloud-client
+      vscode
+      mullvad-browser
+      obs-studio
+      nicotine-plus
+      pyprland
+      riseup-vpn
+      wakatime
+      qbittorrent
+      keepassxc
+      picard
+      dolphin-emu
+      sshfs
+      prismlauncher
+      brave
+      # steam-run
+      osu-lazer-bin
+      plex-desktop
+      plexamp
+      tigervnc
+      onlyoffice-bin_latest
+      lua
+      ripgrep
+      ripgrep-all
+      tree-sitter
+      piper
+      teamspeak5_client
 
-  catppuccin.pointerCursor = {
-    enable = true;
-    accent = "light";
-    flavor = "mocha";
-  };
+      nodePackages_latest.svelte-language-server
+      nodePackages_latest.typescript-language-server
+      vscode-langservers-extracted
+      tailwindcss-language-server
+      bash-language-server
+
+      mdformat
+      cbfmt
+      alejandra
+      shfmt
+      beautysh
+    ]
+    ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
 
   home.pointerCursor = {
     gtk.enable = true;
-    size = 24;
+    size = 18;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
