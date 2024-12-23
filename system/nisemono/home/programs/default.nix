@@ -33,12 +33,13 @@
     ./zellij.nix
     ./udiskie.nix
     ./hyprlock.nix
-    ./hyprpaper.nix
+    # ./hyprpaper.nix
     ./wlogout.nix
     ./xdg-portal.nix
     ./fastfetch.nix
-    ./emacs.nix
+    # ./emacs.nix
     ./mako.nix
+    ./zoxide.nix
     ./catppuccin.nix
   ];
 }

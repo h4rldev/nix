@@ -11,6 +11,8 @@
       "hyprctl dispatch movecursor 1280 720 &"
       "pypr &"
       "mullvad-vpn &"
+      "swww-daemon &"
+      "swww img --resize=crop ${config.home.homeDirectory}/.config/nix/.wallpapers/pixelhoo_ramen_shop.gif &"
     ];
 
     "$monitor1" = "DP-1";
@@ -25,7 +27,8 @@
     "$menu" = "fuzzel";
     "$regionScreenshot" = "grimblast --notify --freeze save area - | satty --copy-command wl-copy --filename -";
     "$windowScreenshot" = "grimblast --notify --freeze save active - | satty --copy-command wl-copy --filename -";
-    "$fullScreenshot" = "grimblast --notify --freeze save output - | satty --copy-command wl-copy --fullscreen --filename -";
+    "$outputScreenshot" = "grimblast --notify --freeze save output - | satty --copy-command wl-copy --fullscreen --filename -";
+    "$fullScreenshot" = "grimblast --notify --freeze save screen - | satty --copy-command wl-copy --fullscreen --filename -";
     "$logout" = "wlogout -b 4";
     "$volume" = "/home/h4rl/.config/nix/.bin/volume";
 
@@ -115,6 +118,7 @@
         "$mod, W, killactive,"
         "CTRL, Print, exec, $regionScreenshot"
         "SHIFT, Print, exec, $windowScreenshot"
+        "CTRL SHIFT, Print, exec, $outputScreenshot"
         ", Print, exec, $fullScreenshot"
         "$mod, E, exec, $fileManager"
         "$mod, L, exec, $logout"

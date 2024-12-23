@@ -78,11 +78,11 @@
       tree-sitter
       piper
       teamspeak5_client
+      swww
 
       nodePackages_latest.svelte-language-server
       nodePackages_latest.typescript-language-server
       vscode-langservers-extracted
-      tailwindcss-language-server
       bash-language-server
 
       mdformat
