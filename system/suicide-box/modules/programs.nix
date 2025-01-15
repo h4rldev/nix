@@ -36,7 +36,7 @@
       package = pkgs.greetd.regreet;
       settings = {
         background = {
-          path = "${config.users.users.h4rl.home}/.config/nix/.wallpapers/lain.png";
+          path = "${config.users.users.h4rl.home}/.config/nix/.wallpapers/bliss.jpg";
           fit = "Cover";
         };
 
@@ -72,5 +72,7 @@
       enable = true;
       defaultEditor = true;
     };
+
+    adb.enable = true;
   };
 }

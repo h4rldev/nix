@@ -21,9 +21,9 @@
     "$terminal" = "kitty";
     "$fileManager" = "pcmanfm";
     "$menu" = "fuzzel";
-    "$regionScreenshot" = "grimblast --notify --cursor --freeze copy area";
-    "$windowScreenshot" = "grimblast --notify --cursor --freeze copy active";
-    "$fullScreenshot" = "grimblast --notify --cursor --freeze copy output";
+    "$regionScreenshot" = "grimblast --notify --freeze save area - | satty --copy-command wl-copy --filename -";
+    "$windowScreenshot" = "grimblast --notify --freeze save active - | satty --copy-command wl-copy --filename -";
+    "$fullScreenshot" = "grimblast --notify --freeze save output - | satty --copy-command wl-copy --fullscreen --filename -";
     "$logout" = "nwg-bar";
     "$brightnessUp" = "brightnessctl set 5%+";
     "$brightnessDown" = "brightnessctl set 5%-";
@@ -31,7 +31,7 @@
     "$volume" = "/home/h4rl/.config/nix/.bin/volume";
 
     env = [
-      "XCURSOR_SIZE, 24"
+      "HYPRCURSOR_SIZE, 18"
     ];
 
     debug = {
@@ -66,10 +66,12 @@
         passes = 1;
       };
 
-      drop_shadow = false;
-      shadow_range = 4;
-      shadow_render_power = 3;
-      "col.shadow" = "rgb(11111b)";
+      shadow = {
+        enabled = false;
+        range = 4;
+        render_power = 3;
+        color = "rgb(11111b)";
+      };
     };
 
     animations = {

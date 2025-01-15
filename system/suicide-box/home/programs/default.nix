@@ -28,5 +28,6 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./fastfetch.nix
+    ./mpv.nix
   ];
 }

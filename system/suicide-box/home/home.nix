@@ -20,32 +20,36 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    yacreader
-    floorp
-    libnotify
-    vesktop
-    nerdfonts
-    font-awesome
-    wl-clipboard
-    just
-    rustup
-    unzip
-    zip
-    luarocks
-    nwg-bar
-    pcmanfm
-    grimblast
-    playerctl
-    pwvucontrol
-    deadbeef-with-plugins
-    yacreader
-    deno
-    alejandra
-    brightnessctl
-    brave
-    xarchiver
-  ];
+  home.packages = with pkgs;
+    [
+      yacreader
+      floorp
+      libnotify
+      vesktop
+      font-awesome
+      wl-clipboard
+      just
+      rustup
+      unzip
+      zip
+      luarocks
+      nwg-bar
+      pcmanfm
+      grimblast
+      playerctl
+      pwvucontrol
+      deadbeef-with-plugins
+      yacreader
+      deno
+      alejandra
+      brightnessctl
+      brave
+      xarchiver
+      satty
+      telegram-desktop
+      catt
+    ]
+    ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
 
   catppuccin.pointerCursor = {
     enable = true;
@@ -55,7 +59,7 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    size = 24;
+    size = 18;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
