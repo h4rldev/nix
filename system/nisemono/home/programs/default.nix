@@ -23,7 +23,6 @@
     ./direnv.nix
     ./gh.nix
     ./git.nix
-    ./gtk.nix
     ./qt.nix
     ./zsh.nix
     ./mime.nix
@@ -33,6 +32,7 @@
     ./zellij.nix
     ./udiskie.nix
     ./hyprlock.nix
+    ./gtk.nix
     # ./hyprpaper.nix
     ./wlogout.nix
     ./xdg-portal.nix
@@ -41,5 +41,6 @@
     ./mako.nix
     ./zoxide.nix
     ./catppuccin.nix
+    ./ghostty.nix
   ];
 }

@@ -9,8 +9,8 @@
 
     exec-once=hyprctl dispatch movecursor 1280 720
 
-    env = XCURSOR_SIZE,18
-    env = HYPRCURSOR_SIZE,18
+    env = XCURSOR_SIZE,20
+    env = HYPRCURSOR_SIZE,20
 
     animations {
       enabled = no

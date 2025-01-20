@@ -2,6 +2,7 @@
   config,
   pkgs,
   catppuccin,
+  inputs,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -39,6 +40,7 @@
       zip
       luarocks
       pcmanfm
+      # nautilus
       grimblast
       satty
       playerctl
@@ -79,6 +81,7 @@
       piper
       teamspeak5_client
       swww
+      telegram-desktop
 
       nodePackages_latest.svelte-language-server
       nodePackages_latest.typescript-language-server
@@ -90,9 +93,13 @@
       alejandra
       shfmt
       beautysh
+
+      geogebra6
+
+      # gimp-with-plugins
+      inputs.ghostty.packages.x86_64-linux.default
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
-
   home.pointerCursor = {
     gtk.enable = true;
     size = 18;
@@ -135,6 +142,7 @@
 
   home.sessionPath = [
     "/home/h4rl/.config/nix/"
+    "/home/h4rl/.cargo/bin"
   ];
 
   # Let Home Manager install and manage itself.

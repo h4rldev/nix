@@ -1,7 +1,8 @@
 {
-  pkgs,
   config,
-  libs,
+  pkgs,
+  lib,
+  catppuccin,
   ...
 }: {
   gtk.enable = true;

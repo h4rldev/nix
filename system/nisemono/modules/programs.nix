@@ -25,6 +25,27 @@
     regreet = {
       enable = true;
       package = pkgs.greetd.regreet;
+      theme = {
+        name = "catppuccin-mocha-teal-standard+default";
+        package = pkgs.catppuccin-gtk;
+      };
+
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.catppuccin-papirus-folders;
+      };
+
+      cursorTheme = {
+        name = "catppuccin-mocha-light-cursors";
+        package = pkgs.catppuccin-cursors;
+      };
+
+      font = {
+        name = "JetBrainsMono Nerd Font";
+        size = 16;
+        package = pkgs.nerd-fonts.jetbrains-mono;
+      };
+
       settings = {
         background = {
           path = "${config.users.users.h4rl.home}/.config/nix/.wallpapers/bliss.jpg";
@@ -33,10 +54,6 @@
 
         GTK = {
           application_prefer_dark_theme = true;
-          cursor_theme_name = lib.mkForce "catppuccin-mocha-light-cursors";
-          font_name = lib.mkForce "Cantarell 16";
-          icon_theme_name = lib.mkForce "Papirus-Dark";
-          theme_name = lib.mkForce "catppuccin-mocha-teal-standard+default";
         };
 
         commands = {

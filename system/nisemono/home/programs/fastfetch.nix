@@ -8,7 +8,8 @@
     enable = true;
     settings = {
       logo = {
-        type = "builtin";
+        type = "kitty-direct";
+        source = "~/.config/nix/.fastfetch/logo.png";
       };
       display = {
         size.binaryPrefix = "si";

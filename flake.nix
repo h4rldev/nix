@@ -10,6 +10,7 @@
     nixinate.url = "github:matthewcroughan/nixinate";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     prism-launcher.url = "github:PrismLauncher/PrismLauncher";
+    ghostty.url = "github:ghostty-org/ghostty";
   };
 
   outputs = {
@@ -20,6 +21,7 @@
     home-manager,
     hyprland,
     prism-launcher,
+    ghostty,
     ...
   } @ inputs: let
     system = "x86_64-linux";

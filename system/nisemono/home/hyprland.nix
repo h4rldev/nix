@@ -22,8 +22,9 @@
       "$monitor2, 1680x1050@60, -1680x330, 1"
     ];
 
-    "$terminal" = "footclient";
+    "$terminal" = "ghostty";
     "$fileManager" = "pcmanfm";
+    # "$fileManager" = "nautilus";
     "$menu" = "fuzzel";
     "$regionScreenshot" = "grimblast --notify --freeze save area - | satty --copy-command wl-copy --filename -";
     "$windowScreenshot" = "grimblast --notify --freeze save active - | satty --copy-command wl-copy --filename -";
@@ -144,8 +145,6 @@
         "$mod, mouse_up, exec, pypr zoom -1"
         "$mod, mouse_down, exec, pypr zoom +1"
         "$mod, z, exec, pypr zoom"
-
-        "$mod, B, exec, pypr expose"
 
         "$mod, V, exec, pypr toggle volume"
         "$mod, A, exec, pypr toggle term"
