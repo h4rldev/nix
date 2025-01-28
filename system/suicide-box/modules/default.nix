@@ -11,5 +11,6 @@
     ./services.nix
     ./programs.nix
     ./hardware.nix
+    ./catppuccin.nix
   ];
 }

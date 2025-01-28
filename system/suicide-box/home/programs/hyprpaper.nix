@@ -7,7 +7,7 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      ipc = "on";
+      ipc = true;
       splash = true;
       splash_offset = 2.0;
       preload = [

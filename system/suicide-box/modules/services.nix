@@ -28,12 +28,11 @@ in {
     };
     greetd = {
       enable = true;
-      settings = rec {
-        initial_session = {
+      settings = {
+        default_session = {
           command = "Hyprland --config ${hyprlandConfig}";
           user = "h4rl";
         };
-        default_session = initial_session;
       };
     };
     xserver = {
@@ -50,5 +49,6 @@ in {
       enable = true;
       package = pkgs.mullvad-vpn;
     };
+    blueman.enable = true;
   };
 }

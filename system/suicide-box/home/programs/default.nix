@@ -29,5 +29,6 @@
     ./hyprpaper.nix
     ./fastfetch.nix
     ./mpv.nix
+    ./catppuccin.nix
   ];
 }

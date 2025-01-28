@@ -48,6 +48,8 @@
       satty
       telegram-desktop
       catt
+      geogebra6
+      plexamp
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
 
