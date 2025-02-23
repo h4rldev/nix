@@ -24,7 +24,6 @@
   home.packages = with pkgs;
     [
       yacreader
-      floorp
       libnotify
       font-awesome
       noto-fonts
@@ -45,7 +44,7 @@
       satty
       playerctl
       pwvucontrol
-      deadbeef-with-plugins
+      # deadbeef-with-plugins
       yacreader
       deno
       alejandra
@@ -55,32 +54,25 @@
       keybase-gui
       nextcloud-client
       vscode
-      mullvad-browser
       obs-studio
       nicotine-plus
       pyprland
-      riseup-vpn
+      # riseup-vpn
       wakatime
       qbittorrent
       keepassxc
       picard
       dolphin-emu
-      sshfs
       prismlauncher
       brave
       # steam-run
       osu-lazer-bin
-      plex-desktop
       plexamp
-      tigervnc
       onlyoffice-bin_latest
       lua
       ripgrep
-      ripgrep-all
-      tree-sitter
       piper
       teamspeak5_client
-      swww
       telegram-desktop
 
       nodePackages_latest.svelte-language-server
@@ -95,14 +87,18 @@
       beautysh
 
       geogebra6
-
       # gimp-with-plugins
       inputs.ghostty.packages.x86_64-linux.default
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
+
   home.pointerCursor = {
     gtk.enable = true;
-    size = 18;
+    size = 20;
+    hyprcursor = {
+      enable = true;
+      size = 20;
+    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -56,6 +56,10 @@
           application_prefer_dark_theme = true;
         };
 
+        appearance = {
+          greeting_msg = "Welcome back!";
+        };
+
         commands = {
           reboot = ["systemctl" "reboot"];
           poweroff = ["systemctl" "poweroff"];

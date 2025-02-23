@@ -65,10 +65,6 @@
           type = "localip";
           compact = true;
         }
-        {
-          type = "publicip";
-          timeout = 1000;
-        }
         "locale"
         {
           type = "custom"; # InformationEnd

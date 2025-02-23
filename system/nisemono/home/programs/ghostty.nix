@@ -1,5 +1,10 @@
-{config, lib, pkgs, inputs, ...}:
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.ghostty = {
     enable = true;
     package = inputs.ghostty.packages.x86_64-linux.default;
@@ -10,4 +15,5 @@
       theme = "catppuccin-mocha";
       gtk-titlebar = false;
     };
+  };
 }

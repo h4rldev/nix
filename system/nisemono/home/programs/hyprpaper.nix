@@ -7,9 +7,9 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      ipc = "on";
-      splash = true;
-      splash_offset = 2.0;
+      ipc = true;
+      # splash = true;
+      # splash_offset = 2.0;
       preload = [
         "${config.home.homeDirectory}/.config/nix/.wallpapers/lain.png"
         "${config.home.homeDirectory}/.config/nix/.wallpapers/bliss.jpg"

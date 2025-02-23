@@ -33,9 +33,8 @@
     ./udiskie.nix
     ./hyprlock.nix
     ./gtk.nix
-    # ./hyprpaper.nix
+    ./hyprpaper.nix
     ./wlogout.nix
-    ./xdg-portal.nix
     ./fastfetch.nix
     # ./emacs.nix
     ./mako.nix

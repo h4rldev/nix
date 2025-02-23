@@ -7,8 +7,6 @@
   hyprlandConfig = pkgs.writeText "greetd-hyprland-config" ''
     monitor=DP-1, 2560x1440@165, auto, 1
 
-    exec-once=hyprctl dispatch movecursor 1280 720
-
     env = XCURSOR_SIZE,20
     env = HYPRCURSOR_SIZE,20
 
@@ -18,10 +16,14 @@
 
     misc {
       force_default_wallpaper = 0 # Set to 0 to disable the anime mascot wallpapers
+      disable_hyprland_logo = true
+      disable_splash_rendering = true
+      disable_hyprland_qtutils_check = true
     }
 
-    $setMouse = hyprctl setcursor catppuccin-mocha-light-cursors 18
-    exec-once = $setMouse & ${config.programs.regreet.package}/bin/regreet; hyprctl dispatch exit
+    exec-once = hyprctl dispatch movecursor 1280 720
+    exec-once = hyprctl setcursor catppuccin-mocha-light-cursors 20
+    exec-once = ${config.programs.regreet.package}/bin/regreet; hyprctl dispatch exit
   '';
 in {
   security.polkit.enable = true;
@@ -46,13 +48,13 @@ in {
     gvfs.enable = true;
     greetd = {
       enable = true;
-      settings = rec {
-        initial_session = {
+      settings = {
+        default_session = {
           command = "Hyprland --config ${hyprlandConfig}";
           user = "h4rl";
         };
-        default_session = initial_session;
       };
+      restart = false;
     };
     xserver = {
       xkb.layout = "se";

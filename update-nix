@@ -18,29 +18,35 @@ if ${COLOR}; then
         CLEAR="${ESCAPE}[0m"
 fi
 
-
-case $3 in 
-"-mem" | "--memory" | "slow")
-  MAX_JOBS="--max-jobs 2"
-  ;;
-*)
-  MAX_JOBS=""
-  ;;
-esac
+for arg in "$@"; do
+        case ${arg} in
+        "-mem" | "--memory" | "slow")
+                MAX_JOBS="--max-jobs 2"
+                echo -e "${YELLOW}!${CLEAR} Slow mode enabled"
+                ;;
+        "-omegamem" | "--omega-memory" | "slower")
+                MAX_JOBS="--max-jobs 1"
+                echo -e "${YELLOW}!${CLEAR} Slower mode enabled"
+                ;;
+        *)
+                MAX_JOBS=""
+                ;;
+        esac
+done
 
 handle_failure() {
-  local MESSAGE="${1}"
+        local MESSAGE="${1}"
 
-  if [[ -z ${MESSAGE} ]]; then
-    echo "${RED}!${CLEAR} No failure message provided, are you using this right?"
-    exit 1
-  fi
+        if [[ -z ${MESSAGE} ]]; then
+                echo "${RED}!${CLEAR} No failure message provided, are you using this right?"
+                exit 1
+        fi
 
-  echo "${RED}!${CLEAR} ${MESSAGE}${CLEAR}"
-  exit 1
+        echo "${RED}!${CLEAR} ${MESSAGE}${CLEAR}"
+        exit 1
 }
 
-pushd $HOME/.config/nix/ >/dev/null || handle_failure "Failed to pushd" 
+pushd $HOME/.config/nix/ >/dev/null || handle_failure "Failed to pushd"
 
 update_lock() {
         echo -e "${BLUE}>${CLEAR} Updating flake.lock.."
@@ -54,8 +60,56 @@ update_lock() {
 
 rebuild() {
         local SUB_CMD
-        SUB_CMD=${2:-"switch"}
-        
+
+        case ${2} in
+        "boot")
+                SUB_CMD="boot"
+                ;;
+
+        "test")
+                SUB_CMD="test"
+                ;;
+
+        "build")
+                SUB_CMD="build"
+                ;;
+
+        "dry-build")
+                SUB_CMD="dry-build"
+                ;;
+
+        "dry-activate")
+                SUB_CMD="dry-activate"
+                ;;
+
+        "edit")
+                SUB_CMD="edit"
+                ;;
+
+        "repl")
+                SUB_CMD="repl"
+                ;;
+
+        "build-vm")
+                SUB_CMD="build-vm"
+                ;;
+
+        "build-vm-with-bootloader")
+                SUB_CMD="build-vm-with-bootloader"
+                ;;
+
+        "build-image")
+                SUB_CMD="build-image"
+                ;;
+
+        "list-generations")
+                SUB_CMD="list-generations"
+                ;;
+
+        "switch" | *)
+                SUB_CMD="switch"
+                ;;
+        esac
         echo -e "${BLUE}>${CLEAR} Rebuilding the NixOS configuration.."
         if sudo nixos-rebuild "${SUB_CMD}" --flake '.#' ${MAX_JOBS}; then
                 echo -e "${GREEN}✓${CLEAR} Successfully reconfigured!"
@@ -78,6 +132,7 @@ case ${1} in
 "rebuild")
         rebuild "${@}"
         ;;
+
 "all" | *)
         update_entire_system "${@}"
         ;;
@@ -85,4 +140,4 @@ esac
 
 echo -e "${GREEN}✓${CLEAR} Finished!"
 
-popd >/dev/null || handle_failure "Failed to popd" 
+popd >/dev/null || handle_failure "Failed to popd"
