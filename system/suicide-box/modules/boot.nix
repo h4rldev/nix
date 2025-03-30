@@ -2,7 +2,6 @@
   pkgs,
   config,
   lib,
-  catppuccin,
   ...
 }: {
   boot = {
@@ -11,10 +10,6 @@
       grub = {
         device = "nodev";
         efiSupport = true;
-        catppuccin = {
-          enable = true;
-          flavor = "mocha";
-        };
       };
       efi.canTouchEfiVariables = true;
     };

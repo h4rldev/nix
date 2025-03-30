@@ -25,7 +25,7 @@
       yacreader
       floorp
       libnotify
-      vesktop
+      equibop
       font-awesome
       wl-clipboard
       just
@@ -53,15 +53,14 @@
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
 
-  catppuccin.pointerCursor = {
-    enable = true;
-    accent = "light";
-    flavor = "mocha";
-  };
-
   home.pointerCursor = {
     gtk.enable = true;
     size = 18;
+
+    hyprcursor = {
+      enable = true;
+      size = 18;
+    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

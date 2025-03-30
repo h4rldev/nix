@@ -1,12 +1,11 @@
-{config, pkgs, libs, catppuccin, ...}:
-
 {
+  config,
+  pkgs,
+  libs,
+  ...
+}: {
   programs.kitty = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-    };
     font = {
       name = "JetBrainsMono Nerd Font";
     };

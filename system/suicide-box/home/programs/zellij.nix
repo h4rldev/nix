@@ -2,7 +2,6 @@
   config,
   libs,
   pkgs,
-  catppuccin,
   ...
 }:
 /*
@@ -376,10 +375,6 @@ plugins {
   programs.zellij = {
     enable = true;
     enableZshIntegration = false;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-    };
     settings = {
       copy_command = "wl-copy";
       default_mode = "locked";

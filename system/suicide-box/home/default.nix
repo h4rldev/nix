@@ -1,8 +1,9 @@
 {
   pkgs,
   config,
-  libs,
+  lib,
   catppuccin,
+  inputs,
   ...
 }: {
   imports = [

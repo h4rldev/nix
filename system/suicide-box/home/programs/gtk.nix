@@ -1,17 +1,10 @@
-{pkgs, config, libs, catppuccin, ...}: 
-
 {
+  pkgs,
+  config,
+  libs,
+  ...
+}: {
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-      accent = "teal";
-      icon = {
-	enable = true;
-	flavor = "mocha";
-	accent = "teal";
-      };
-    };
   };
 }

@@ -1,18 +1,21 @@
-{pkgs, libs, config, ...}:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   services.mako = {
     enable = true;
-    font = "JetBrainsMono Nerd Font";
+    font = lib.mkForce "JetBrainsMono Nerd Font";
     icons = true;
-    maxIconSize = 128;
-    defaultTimeout = 300;
-    layer = "overlay";
-    anchor = "bottom-right";
-    backgroundColor = "#1e1e2e";
-    textColor = "#cdd6f4";
-    borderColor = "#89b4fa";
-    progressColor = "over #313244";
-    extraConfig = "[urgency=high]\nborder-color=#fab387";
+    maxIconSize = lib.mkForce 128;
+    defaultTimeout = lib.mkForce 2000;
+    layer = lib.mkForce "overlay";
+    anchor = lib.mkForce "bottom-right";
+    backgroundColor = lib.mkForce "#1e1e2e";
+    textColor = lib.mkForce "#cdd6f4";
+    borderColor = lib.mkForce "#89b4fa";
+    progressColor = lib.mkForce "over #313244";
+    extraConfig = lib.mkForce "[urgency=high]\nborder-color=#fab387";
   };
 }

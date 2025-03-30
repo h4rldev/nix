@@ -8,8 +8,8 @@
     enable = true;
     settings = {
       ipc = true;
-      splash = true;
-      splash_offset = 2.0;
+      # splash = true;
+      # splash_offset = 2.0;
       preload = [
         "${config.home.homeDirectory}/.config/nix/.wallpapers/bliss.jpg"
       ];
