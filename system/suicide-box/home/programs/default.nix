@@ -28,6 +28,7 @@
     ./hyprlock.nix
     ./hyprpaper.nix
     ./fastfetch.nix
+    ./zoxide.nix
     ./mpv.nix
     ./catppuccin.nix
   ];
