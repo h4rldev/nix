@@ -17,6 +17,7 @@
         "mullvad-vpn &"
         # "swww-daemon &"
         # "swww img --resize=crop ${config.home.homeDirectory}/.config/nix/.wallpapers/pixelhoo_ramen_shop.gif &"
+        "hyprctl setcursor catppuccin-mocha-light-cursors 18"
       ];
 
       "$monitor1" = "DP-1";
@@ -38,8 +39,8 @@
       "$volume" = "/home/h4rl/.config/nix/.bin/volume";
 
       env = [
-        "HYPRCURSOR_SIZE, 20"
-        "XCURSOR_SIZE, 20"
+        "HYPRCURSOR_SIZE, 18"
+        "XCURSOR_SIZE, 18"
       ];
 
       debug = {
@@ -48,7 +49,7 @@
 
       input = {
         kb_layout = "se";
-        kb_options = "ctrl:nocaps";
+        kb_options = "ctrl:nocaps, compose:rctrl";
         follow_mouse = 1;
         # touchpad = {
         #  scroll_factor = 0.2;
@@ -116,6 +117,11 @@
 
       workspace = [
         "special:exposed,gapsout:60,gapsin:30,bordersize:5,border:true,shadow:false"
+      ];
+
+      windowrule = [
+        "float, class:^(drop.term)$"
+        "float, class:^(com.saivert.pwvucontrol)$"
       ];
 
       "$mod" = "SUPER";

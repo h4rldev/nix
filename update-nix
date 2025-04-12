@@ -21,11 +21,11 @@ fi
 for arg in "$@"; do
         case ${arg} in
         "-mem" | "--memory" | "slow")
-                MAX_JOBS="--max-jobs 2"
+                MAX_JOBS="--max-jobs 2 --cores 6"
                 echo -e "${YELLOW}!${CLEAR} Slow mode enabled"
                 ;;
         "-omegamem" | "--omega-memory" | "slower")
-                MAX_JOBS="--max-jobs 1"
+                MAX_JOBS="--max-jobs 1 --cores 4"
                 echo -e "${YELLOW}!${CLEAR} Slower mode enabled"
                 ;;
         *)

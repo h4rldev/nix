@@ -28,6 +28,18 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/run/media/h4rl/media" = {
+    device = "home-server:/home/h4rl/media";
+    fsType = "sshfs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "IdentityFile=/home/h4rl/.ssh/h4rl-nisemono"
+      "allow_other"
+      "reconnect"
+    ];
+  };
+
   zramSwap = {
     enable = true;
     memoryPercent = 50;

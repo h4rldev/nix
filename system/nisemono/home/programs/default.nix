@@ -41,5 +41,6 @@
     ./zoxide.nix
     ./catppuccin.nix
     ./ghostty.nix
+    ./ibus.nix
   ];
 }

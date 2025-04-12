@@ -377,6 +377,7 @@ plugins {
     settings = {
       copy_command = "wl-copy";
       default_mode = "locked";
+      show_startup_tips = false;
     };
   };
 }

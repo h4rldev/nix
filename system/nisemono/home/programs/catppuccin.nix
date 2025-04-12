@@ -22,6 +22,11 @@
       accent = "teal";
     };
 
+    fcitx5 = {
+      enable = true;
+      flavor = "mocha";
+    };
+
     gtk = {
       enable = true;
       flavor = "mocha";

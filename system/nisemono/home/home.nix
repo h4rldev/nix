@@ -44,7 +44,7 @@
       satty
       playerctl
       pwvucontrol
-      # deadbeef-with-plugins
+      deadbeef-with-plugins
       yacreader
       deno
       alejandra
@@ -67,13 +67,15 @@
       brave
       # steam-run
       osu-lazer-bin
-      plexamp
+      jellyfin-media-player
       onlyoffice-bin_latest
       lua
       ripgrep
       piper
       teamspeak5_client
       telegram-desktop
+      # floorp
+      feishin
 
       nodePackages_latest.svelte-language-server
       nodePackages_latest.typescript-language-server
@@ -85,6 +87,7 @@
       alejandra
       shfmt
       beautysh
+      gamescope
 
       geogebra6
       # gimp-with-plugins
@@ -94,10 +97,10 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    size = 20;
+    size = 18;
     hyprcursor = {
       enable = true;
-      size = 20;
+      size = 18;
     };
   };
 

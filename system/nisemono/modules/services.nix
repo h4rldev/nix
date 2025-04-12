@@ -7,8 +7,8 @@
   hyprlandConfig = pkgs.writeText "greetd-hyprland-config" ''
     monitor=DP-1, 2560x1440@165, auto, 1
 
-    env = XCURSOR_SIZE,20
-    env = HYPRCURSOR_SIZE,20
+    env = XCURSOR_SIZE,18
+    env = HYPRCURSOR_SIZE,18
 
     animations {
       enabled = no
@@ -51,6 +51,11 @@ in {
       settings = {
         default_session = {
           command = "Hyprland --config ${hyprlandConfig}";
+          user = "h4rl";
+        };
+
+        initial_session = {
+          command = "Hyprland";
           user = "h4rl";
         };
       };
