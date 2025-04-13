@@ -28,17 +28,17 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
-  fileSystems."/run/media/h4rl/media" = {
-    device = "home-server:/home/h4rl/media";
-    fsType = "sshfs";
-    options = [
-      "noauto"
-      "x-systemd.automount"
-      "IdentityFile=/home/h4rl/.ssh/h4rl-nisemono"
-      "allow_other"
-      "reconnect"
-    ];
-  };
+  # fileSystems."/run/media/h4rl/home-server" = {
+  #   device = "h4rl@192.168.1.77:/home/h4rl/";
+  #   fsType = "sshfs";
+  #   options = [
+  #     "IdentityFile=/home/h4rl/.ssh/h4rl-nisemono"
+  #     "Port=22345"
+  #     "nodev"
+  #     "noatime"
+  #     "allow_other"
+  #   ];
+  # };
 
   zramSwap = {
     enable = true;

@@ -24,7 +24,9 @@
 
     fcitx5 = {
       enable = true;
+      apply = true;
       flavor = "mocha";
+      accent = "teal";
     };
 
     gtk = {

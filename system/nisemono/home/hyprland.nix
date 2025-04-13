@@ -18,6 +18,9 @@
         # "swww-daemon &"
         # "swww img --resize=crop ${config.home.homeDirectory}/.config/nix/.wallpapers/pixelhoo_ramen_shop.gif &"
         "hyprctl setcursor catppuccin-mocha-light-cursors 18"
+        "fcitx5-remote -r"
+        "fcitx5 -d --replace &"
+        "fcitx5-remote -r"
       ];
 
       "$monitor1" = "DP-1";
@@ -41,6 +44,9 @@
       env = [
         "HYPRCURSOR_SIZE, 18"
         "XCURSOR_SIZE, 18"
+        "GTK_IM_MODULE, fcitx"
+        "QT_IM_MODULE, fcitx"
+        "XMODIFIERS, @im=fcitx"
       ];
 
       debug = {
@@ -143,6 +149,7 @@
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"
 
+          "SUPER_CTRL,space,execr,fcitx5-remote -t"
           "$mod, left, movefocus, l"
           "$mod, down, movefocus, d"
           "$mod, up, movefocus, u"
