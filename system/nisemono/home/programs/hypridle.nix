@@ -25,7 +25,7 @@
         }
         {
           timeout = 3600;
-          on-timeout = "systemctl shutdown now";
+          on-timeout = "systemctl poweroff";
         }
       ];
     };
