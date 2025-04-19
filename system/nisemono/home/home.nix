@@ -88,6 +88,8 @@
       shfmt
       beautysh
       gamescope
+      sshfs
+      fuse
 
       geogebra6
       # gimp-with-plugins

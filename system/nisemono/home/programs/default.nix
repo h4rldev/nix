@@ -42,5 +42,6 @@
     ./catppuccin.nix
     ./ghostty.nix
     ./ibus.nix
+    ./sshfs.nix
   ];
 }
