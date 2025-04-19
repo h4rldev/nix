@@ -43,5 +43,6 @@
     ./ghostty.nix
     ./ibus.nix
     ./sshfs.nix
+    ./hypridle.nix
   ];
 }
