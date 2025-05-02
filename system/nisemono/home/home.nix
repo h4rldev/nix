@@ -52,7 +52,7 @@
       vesktop
       equibop
       keybase-gui
-      nextcloud-client
+      # nextcloud-client
       vscode
       obs-studio
       nicotine-plus

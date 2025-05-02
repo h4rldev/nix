@@ -34,6 +34,40 @@ for arg in "$@"; do
         esac
 done
 
+case ${2} in
+"boot")
+        SUB_CMD="boot"
+        ;;
+
+"test")
+        SUB_CMD="test"
+        ;;
+
+"build")
+        SUB_CMD="build"
+        ;;
+
+"repl")
+        SUB_CMD="repl"
+        ;;
+
+"switch" | *)
+        SUB_CMD="switch"
+        ;;
+esac
+
+if nh --help >/dev/null 2>&1; then
+        echo -e "${BLUE}>${CLEAR} Using nh for updating and cleaning, as it is available"
+        UPDATE_COMMAND="nh os ${SUB_CMD} . -- ${MAX_JOBS}"
+        CLEAN_COMMAND="nh clean all"
+        NH_AVAILABLE=true
+else
+        echo -e "${BLUE}>${CLEAR} Using nixos-rebuild for updating and nix-collect-garbage for cleaning, as nh is not available"
+        UPDATE_COMMAND="sudo nixos-rebuild ${SUB_CMD} --flake .# ${MAX_JOBS}"
+        CLEAN_COMMAND="sudo nix-collect-garbage"
+        NH_AVAILABLE=false
+fi
+
 handle_failure() {
         local MESSAGE="${1}"
 
@@ -46,7 +80,36 @@ handle_failure() {
         exit 1
 }
 
-pushd $HOME/.config/nix/ >/dev/null || handle_failure "Failed to pushd"
+pushd "${HOME}/.config/nix/" >/dev/null || handle_failure "Failed to pushd"
+
+throw_out_garbage() {
+        local old_derivations
+
+        case ${1} in
+        "-n" | "-no" | "--no-clean" | "no-clean")
+                if [[ ${NH_AVAILABLE} == true ]]; then
+                        old_derivations="--keep-since 14d"
+                else
+                        old_derivations=""
+                fi
+                ;;
+        *)
+                if [[ ${NH_AVAILABLE} == true ]]; then
+                        old_derivations=""
+                else
+                        old_derivations="-d"
+                fi
+                ;;
+        esac
+
+        echo -e "${BLUE}>${CLEAR} Garbage collecting.."
+        if $CLEAN_COMMAND ${old_derivations}; then
+                echo -e "${GREEN}✓${CLEAR} Successfully garbage collected!"
+        else
+                echo -e "${RED}!${CLEAR} Somecthing went wrong garbage collecting! \nError code: ${?}"
+                exit 1
+        fi
+}
 
 update_lock() {
         echo -e "${BLUE}>${CLEAR} Updating flake.lock.."
@@ -59,59 +122,8 @@ update_lock() {
 }
 
 rebuild() {
-        local SUB_CMD
-
-        case ${2} in
-        "boot")
-                SUB_CMD="boot"
-                ;;
-
-        "test")
-                SUB_CMD="test"
-                ;;
-
-        "build")
-                SUB_CMD="build"
-                ;;
-
-        "dry-build")
-                SUB_CMD="dry-build"
-                ;;
-
-        "dry-activate")
-                SUB_CMD="dry-activate"
-                ;;
-
-        "edit")
-                SUB_CMD="edit"
-                ;;
-
-        "repl")
-                SUB_CMD="repl"
-                ;;
-
-        "build-vm")
-                SUB_CMD="build-vm"
-                ;;
-
-        "build-vm-with-bootloader")
-                SUB_CMD="build-vm-with-bootloader"
-                ;;
-
-        "build-image")
-                SUB_CMD="build-image"
-                ;;
-
-        "list-generations")
-                SUB_CMD="list-generations"
-                ;;
-
-        "switch" | *)
-                SUB_CMD="switch"
-                ;;
-        esac
         echo -e "${BLUE}>${CLEAR} Rebuilding the NixOS configuration.."
-        if sudo nixos-rebuild "${SUB_CMD}" --flake '.#' ${MAX_JOBS}; then
+        if $UPDATE_COMMAND; then
                 echo -e "${GREEN}✓${CLEAR} Successfully reconfigured!"
         else
                 echo -e "${RED}!${CLEAR} Somecthing went wrong reconfiguring! \nError code: ${?}"
@@ -125,6 +137,9 @@ update_entire_system() {
 }
 
 case ${1} in
+"gc" | "cg" | "garbage-collect" | "collect" | "collect-garbage" | "clean" | "garbage")
+        throw_out_garbage "${2}"
+        ;;
 "lock")
         update_lock
         ;;

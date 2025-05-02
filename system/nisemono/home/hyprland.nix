@@ -8,8 +8,17 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
+
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+
+    xwayland.enable = true;
+
+    systemd = {
+      enable = true;
+      variables = ["-all"];
+    };
+
     settings = {
       exec-once = [
         "hyprctl dispatch movecursor 1280 720 &"
@@ -67,7 +76,7 @@
         gaps_in = 5;
         gaps_out = 15;
         border_size = 3;
-        "col.active_border" = "rgb(94e2d5) rgb(f2cdcd) 25deg";
+        "col.active_border" = "rgb(cdd6f4)";
         "col.inactive_border" = "rgb(11111b)";
 
         layout = "dwindle";
@@ -76,7 +85,7 @@
       };
 
       decoration = {
-        rounding = 5;
+        rounding = 7;
         blur = {
           enabled = true;
           size = 4;
@@ -149,7 +158,7 @@
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"
 
-          "SUPER_CTRL,space,execr,fcitx5-remote -t"
+          "SUPER_CTRL SHIFT,space,execr,fcitx5-remote -t"
           "$mod, left, movefocus, l"
           "$mod, down, movefocus, d"
           "$mod, up, movefocus, u"

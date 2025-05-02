@@ -20,11 +20,11 @@
           on-resume = "hyprctl dispatch dpms on";
         }
         {
-          timeout = 1800;
+          timeout = 3600;
           on-timeout = "hyprlock";
         }
         {
-          timeout = 3600;
+          timeout = 7200;
           on-timeout = "systemctl poweroff";
         }
       ];

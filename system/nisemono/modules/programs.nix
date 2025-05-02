@@ -88,5 +88,11 @@
       enable = true;
       defaultEditor = true;
     };
+
+    nh = {
+      enable = true;
+      clean.enable = true;
+      flake = "${config.users.users.h4rl.home}/.config/nix";
+    };
   };
 }
