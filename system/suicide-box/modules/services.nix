@@ -33,6 +33,11 @@ in {
           command = "Hyprland --config ${hyprlandConfig}";
           user = "h4rl";
         };
+
+        initial_session = {
+          command = "Hyprland";
+          user = "h4rl";
+        };
       };
     };
     xserver = {

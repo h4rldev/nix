@@ -49,7 +49,8 @@
       telegram-desktop
       catt
       geogebra6
-      plexamp
+      # plexamp
+      feishin
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
 
