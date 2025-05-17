@@ -44,7 +44,7 @@ if [[ -z "$(ls -A '/etc/nixos/')" ]] && [[ -f ~/.config/nix/flake.nix ]]; then
 fi
 
 if $nixos_configured; then
-    echo "NixOS is already configured. Please run 'update-nix' to update the NixOS configuration."
+    echo "NixOS is already configured. Exiting..."
     exit 1
 fi
 
