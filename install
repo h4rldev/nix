@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+## WARNING ######################################################################################
+## Be sure to enable the flakes feature in your NixOS configuration before running this script.##
+## And make sure you have a backup of your system before running this script!                  ##
+## make sure you have a backup of your system before running this script!                      ##
+#################################################################################################
+
+## This script is used to install this NixOS configuration.
+##
+## It is intended to be run on a freshly installed NixOS system.
+
+## Check if running in the directory where this script is located
+
+current_dir=$(pwd)
+dir_of_this_script=${HOME}/.config/nix/
+working_dir=""
+
+if [[ "$current_dir" != "$dir_of_this_script" ]]; then
+    working_dir="$dir_of_this_script"
+else
+    working_dir="$current_dir"
+fi
+
+handle_error() {
+    echo "Error: $1"
+    exit 1
+}
+
+if [[ ! -d "$working_dir" ]]; then
+    pushd ~/.config >/dev/null || handle_error "Could not change directory to $dir_of_this_script"
+    git clone https://github.com/h4rldev/nix.git
+    popd >/dev/null || handle_error "Could not popd back to where we were"
+fi
+
+pushd "$working_dir" >/dev/null || handle_error "Could not change directory to $working_dir"
+
+# Check if the NixOS configuration is already installed
+nixos_configured=false
+if [[ -z "$(ls -A '/etc/nixos/')" ]] && [[ -f ~/.config/nix/flake.nix ]]; then
+    nixos_configured=true
+fi
+
+if $nixos_configured; then
+    echo "NixOS is already configured. Please run 'update-nix' to update the NixOS configuration."
+    exit 1
+fi
+
+read -r -p "Have you enabled the flakes feature in your NixOS configuration? [y/n]: " enable_flakes
+case $enable_flakes in
+y | Y) ;;
+n | N)
+    echo "Please enable the flakes feature in your NixOS configuration before running this script."
+    exit 1
+    ;;
+*)
+    echo "Invalid input"
+    exit 1
+    ;;
+esac
+
+## Making a backup of the current configuration just in case
+sudo cp -r /etc/nixos ./nixos.bak
+
+## Remove the old configuration
+sudo rm -rf /etc/nixos
+
+## Install the new configuration
+mkdir -p ~/.config/
+cp -r .non-nixed/* ~/.config/
+
+hostname=$(hostname)
+read -r -p "What is your hostname? [your current: $hostname]: " hostname
+
+if [[ "$hostname" != "nisemono" ]]; then
+    echo "Invalid hostname. Please use either 'nisemono' or 'suicide-box', and make sure your system's hardware matches the hardware of either of these two machines."
+    exit 1
+fi
+
+if [[ "$hostname" != "suicide-box" ]]; then
+    echo "Invalid hostname. Please use either 'nisemono' or 'suicide-box', and make sure your system's hardware matches the hardware of either of these two machines."
+    exit 1
+fi
+
+if [ -z "$hostname" ]; then
+    hostname="nisemono"
+    echo "Using default hostname: $hostname"
+fi
+
+./update-nix flake
+sudo nixos-rebuild switch --flake .#"$hostname"
+
+echo "Installation complete!"
+echo "Your system should now be fully configured, it's now managed in $working_dir"
+echo "You can now run 'update-nix' to update the NixOS configuration globally, feel free to check out the --help flag for more information."
+
+popd >/dev/null || handle_error "Could not popd back to where we were"
+
+exit 0

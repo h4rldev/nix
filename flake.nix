@@ -62,6 +62,8 @@
             nixpkgs.config = {
               allowUnfree = true;
               allowUnfreePredicate = _: true;
+              allowBroken = true;
+              allowBrokenPredicate = _: true;
             };
           })
           catppuccin.nixosModules.catppuccin
@@ -91,11 +93,16 @@
         modules = [
           {
             nixpkgs.overlays = overlays;
+            nixpkgs.config.permittedInsecurePackages = [
+              "electron-33.4.11"
+            ];
           }
           ({pkgs, ...}: {
             nixpkgs.config = {
               allowUnfree = true;
               allowUnfreePredicate = _: true;
+              allowBroken = true;
+              allowBrokenPredicate = _: true;
             };
           })
           catppuccin.nixosModules.catppuccin

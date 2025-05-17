@@ -49,13 +49,13 @@
       deno
       alejandra
       xarchiver
-      vesktop
+      # vesktop
       equibop
       keybase-gui
       # nextcloud-client
       vscode
       obs-studio
-      nicotine-plus
+      # nicotine-plus
       pyprland
       # riseup-vpn
       wakatime
@@ -73,7 +73,7 @@
       ripgrep
       piper
       teamspeak5_client
-      telegram-desktop
+      # telegram-desktop
       # floorp
       feishin
 
@@ -88,10 +88,23 @@
       shfmt
       beautysh
       gamescope
-      sshfs
       fuse
 
-      geogebra6
+      wineWow64Packages.waylandFull
+      minecraft
+
+      signal-desktop
+      xorg.xrandr
+      mangohud
+      gamemode
+      zrythm
+
+      # plugins for zrythm
+      helm
+      distrho-ports
+      zam-plugins
+
+      # geogebra6
       # gimp-with-plugins
       inputs.ghostty.packages.x86_64-linux.default
     ]

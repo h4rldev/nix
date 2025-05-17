@@ -14,16 +14,13 @@
 
     xwayland.enable = true;
 
-    systemd = {
-      enable = true;
-      variables = ["-all"];
-    };
-
     settings = {
       exec-once = [
         "hyprctl dispatch movecursor 1280 720 &"
         "pypr &"
         "mullvad-vpn &"
+        "xrandr --output DP-1 --primary &"
+
         # "swww-daemon &"
         # "swww img --resize=crop ${config.home.homeDirectory}/.config/nix/.wallpapers/pixelhoo_ramen_shop.gif &"
         "hyprctl setcursor catppuccin-mocha-light-cursors 18"
