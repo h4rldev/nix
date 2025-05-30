@@ -24,7 +24,6 @@
   home.packages = with pkgs;
     [
       libnotify
-      wl-clipboard
       just
       rustup
       unzip
@@ -45,10 +44,7 @@
       alejandra
       shfmt
       beautysh
-      gamescope
       fuse
-
-      xorg.xrandr
     ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

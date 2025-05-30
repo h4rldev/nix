@@ -375,7 +375,6 @@ plugins {
   programs.zellij = {
     enable = true;
     settings = {
-      copy_command = "wl-copy";
       default_mode = "locked";
       show_startup_tips = false;
     };

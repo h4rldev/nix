@@ -7,6 +7,7 @@
   programs = {
     mtr.enable = true;
     gnupg.agent = {
+      pinentryPackage = pkgs.pinentry-curses;
       enable = true;
       enableSSHSupport = true;
     };

@@ -11,10 +11,6 @@
       services = {
         login = {
           enableGnomeKeyring = true;
-          kwallet = {
-            enable = true;
-            package = pkgs.kdePackages.kwallet-pam;
-          };
         };
       };
     };

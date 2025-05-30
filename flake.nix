@@ -134,8 +134,14 @@
 	modules = [
 	  nixos-wsl.nixosModules.default
           {
-	    wsl.enable = true;
-	    wsl.defaultUser = "h4rl";
+	    wsl = {
+	      enable = true;
+	      defaultUser = "h4rl";
+	      wslConf = {
+	        network.hostname = "windows";
+		user.default = "h4rl";
+	      };
+	    };
 	  }
 	  {
 	    nixpkgs.overlays = overlays;
