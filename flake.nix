@@ -11,6 +11,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     prism-launcher.url = "github:PrismLauncher/PrismLauncher";
     ghostty.url = "github:ghostty-org/ghostty";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   nixConfig = {
@@ -33,6 +34,7 @@
     home-manager,
     hyprland,
     prism-launcher,
+    nixos-wsl,
     ghostty,
     ...
   } @ inputs: let
@@ -125,6 +127,41 @@
           ./global_modules
           ./system/nisemono
         ];
+      };
+      windows = nixpkgs.lib.nixosSystem {
+        inherit system;
+	specialArgs = {inherit inputs;};
+	modules = [
+	  nixos-wsl.nixosModules.default
+          {
+	    wsl.enable = true;
+	    wsl.defaultUser = "h4rl";
+	  }
+	  {
+	    nixpkgs.overlays = overlays;
+	  }
+	  ({pkgs, ...}: {
+            nixpkgs.config = {
+              allowUnfree = true;
+	      allowUnfreePredicate = _: true;
+	    };
+	  })
+	  home-manager.nixosModules.home-manager
+	  {
+            home-manager = {
+              useGlobalPkgs = true;
+	      useUserPackages = true;
+	      extraSpecialArgs = {inherit inputs;};
+	      users.h4rl = {
+                home.homeDirectory = "/home/h4rl";
+		imports = [
+		  ./system/windows/home
+		];
+	      };
+	    };
+	  }
+	  ./system/windows
+	];
       };
     };
   };
