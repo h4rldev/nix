@@ -28,18 +28,6 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
-  # fileSystems."/run/media/h4rl/home-server" = {
-  #   device = "h4rl@192.168.1.77:/home/h4rl/";
-  #   fsType = "sshfs";
-  #   options = [
-  #     "IdentityFile=/home/h4rl/.ssh/h4rl-nisemono"
-  #     "Port=22345"
-  #     "nodev"
-  #     "noatime"
-  #     "allow_other"
-  #   ];
-  # };
-
   zramSwap = {
     enable = true;
     memoryPercent = 50;
@@ -54,4 +42,9 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.opentabletdriver = {
+    enable = true;
+    package = pkgs.opentabletdriver;
+    daemon.enable = true;
+  };
 }

@@ -95,6 +95,18 @@
       flake = "${config.users.users.h4rl.home}/.config/nix";
     };
 
+    gamemode = {
+      enable = true;
+      enableRenice = true;
+
+      settings = {
+        custom = {
+          start = "${pkgs.libnotify}/bin/notify-send 'Gamemode' 'Starting gamemode'";
+          stop = "${pkgs.libnotify}/bin/notify-send 'Gamemode' 'Stopping gamemode'";
+        };
+      };
+    };
+
     ssh = {
       extraConfig = ''
         Host vps-server

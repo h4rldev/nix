@@ -104,7 +104,10 @@
       distrho-ports
       zam-plugins
 
-      # geogebra6
+      xournalpp
+      obsidian
+
+      geogebra6
       # gimp-with-plugins
       inputs.ghostty.packages.x86_64-linux.default
     ]
