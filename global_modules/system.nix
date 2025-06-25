@@ -17,7 +17,7 @@
     defaultUserShell = pkgs.zsh;
     users.h4rl = {
       isNormalUser = true;
-      extraGroups = ["wheel" "adbusers" "audio"]; # Enable ‘sudo’ for the user.
+      extraGroups = ["wheel" "adbusers" "audio" "libvirtd" "kvm"]; # Enable ‘sudo’ for the user.
     };
   };
 }

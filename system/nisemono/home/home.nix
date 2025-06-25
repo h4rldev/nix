@@ -45,7 +45,6 @@
       playerctl
       pwvucontrol
       deadbeef-with-plugins
-      yacreader
       deno
       alejandra
       xarchiver
@@ -82,6 +81,8 @@
       vscode-langservers-extracted
       bash-language-server
 
+      kdePackages.qtdeclarative
+
       mdformat
       cbfmt
       alejandra
@@ -97,15 +98,19 @@
       xorg.xrandr
       mangohud
       gamemode
-      zrythm
+      # zrythm
+      telegram-desktop
 
       # plugins for zrythm
-      helm
-      distrho-ports
-      zam-plugins
+      # helm
+      # distrho-ports
+      # zam-plugins
 
       xournalpp
       obsidian
+      croc
+
+      chatterino7
 
       geogebra6
       # gimp-with-plugins

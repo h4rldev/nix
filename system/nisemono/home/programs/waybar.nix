@@ -12,8 +12,8 @@
         position = "top";
         output = "DP-1";
         height = 36;
-        width = 2528;
-        margin-top = 6;
+        width = 2560;
+        margin-top = 0;
         spacing = 0;
         modules-left = [
           "hyprland/workspaces"
@@ -40,13 +40,14 @@
           on-scroll-down = "hyprctl dispatch workspace e-1";
           format = "{icon}";
           format-icons = {
-            "1" = "";
-            "2" = "󰖟";
-            "3" = "󰅺";
-            "4" = "󰎆";
-            "5" = "";
-            "6" = "󰂺";
-            "7" = "󰊴";
+            "1" = ""; # Programming
+            "2" = "󰖟"; # Browser
+            "3" = "󰅺"; # Social Media
+            "4" = "󰎆"; # Music
+            "5" = ""; # Terminal
+            "6" = "󰂺"; # for both studying and reading
+            "7" = "󰍹"; # Streaming
+            "8" = "󰊴"; # Gaming
             "urgent" = "";
             "focused" = "";
             "default" = "";
@@ -194,8 +195,8 @@
         position = "top";
         output = "HDMI-A-1";
         height = 36;
-        width = 1648;
-        margin-top = 6;
+        width = 1650;
+        margin-top = 0;
         spacing = 0;
 
         modules-left = [
@@ -222,13 +223,14 @@
           on-scroll-down = "hyprctl dispatch workspace e-1";
           format = "{icon}";
           format-icons = {
-            "1" = "";
-            "2" = "󰖟";
-            "3" = "󰅺";
-            "4" = "󰎆";
-            "5" = "";
-            "6" = "󰂺";
-            "7" = "󰊴";
+            "1" = ""; # Programming
+            "2" = "󰖟"; # Browser
+            "3" = "󰅺"; # Social Media
+            "4" = "󰎆"; # Music
+            "5" = ""; # Terminal
+            "6" = "󰂺"; # for both studying and reading
+            "7" = "󰍹"; # Streaming
+            "8" = "󰊴"; # Gaming
             "urgent" = "";
             "focused" = "";
             "default" = "";
@@ -328,169 +330,166 @@
       };
     };
     style = ''
-           @define-color base   #1e1e2e;
-           @define-color mantle #181825;
-           @define-color crust  #11111b;
+      @define-color base   #1e1e2e;
+      @define-color mantle #181825;
+      @define-color crust  #11111b;
 
-           @define-color text     #cdd6f4;
+      @define-color text     #cdd6f4;
 
-           @define-color surface0 #313244;
-           @define-color surface1 #45475a;
-           @define-color surface2 #585b70;
+      @define-color surface0 #313244;
+      @define-color surface1 #45475a;
+      @define-color surface2 #585b70;
 
-           @define-color blue      #89b4fa;
-           @define-color lavender  #b4befe;
-           @define-color sapphire  #74c7ec;
-           @define-color sky       #89dceb;
-           @define-color teal      #94e2d5;
-           @define-color green     #a6e3a1;
-           @define-color yellow    #f9e2af;
-           @define-color peach     #fab387;
-           @define-color maroon    #eba0ac;
-           @define-color red       #f38ba8;
-           @define-color mauve     #cba6f7;
-           @define-color pink      #f5c2e7;
-           @define-color flamingo  #f2cdcd;
-           @define-color rosewater #f5e0dc;
+      @define-color blue      #89b4fa;
+      @define-color lavender  #b4befe;
+      @define-color sapphire  #74c7ec;
+      @define-color sky       #89dceb;
+      @define-color teal      #94e2d5;
+      @define-color green     #a6e3a1;
+      @define-color yellow    #f9e2af;
+      @define-color peach     #fab387;
+      @define-color maroon    #eba0ac;
+      @define-color red       #f38ba8;
+      @define-color mauve     #cba6f7;
+      @define-color pink      #f5c2e7;
+      @define-color flamingo  #f2cdcd;
+      @define-color rosewater #f5e0dc;
 
-           * {
-      font-family: JetBrainsMono Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-           }
+      * {
+        font-family: JetBrainsMono Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+      }
 
-           window#waybar {
-      color: @text;
-      background-color: @base;
-      border-radius: 14px;
-      border: solid 3px @text;
-           }
+      window#waybar {
+        color: @text;
+        background-color: @base;
+        opacity: 0.7;
+      }
 
-           window#waybar.hidden {
-      opacity: 0.2;
-           }
+      window#waybar.hidden {
+        opacity: 0.2;
+      }
 
-           button {
-      border: none;
-      border-radius: 0;
-           }
+      button {
+        border: none;
+        border-radius: 0;
+      }
 
-           button:hover {
-      color: @teal;
-           }
+      button:hover {
+        color: @teal;
+      }
 
-           #workspaces button {
-      padding-left: 2px;
-      padding-right: 5px;
-      background-color: transparent;
-      color: @text;
-           }
+      #workspaces button {
+        padding-left: 2px;
+        padding-right: 5px;
+        background-color: transparent;
+        color: @text;
+      }
 
-           #workspaces button:hover {
-      color: @teal;
-      background-color: rgba(0,0,0,0.2);
-           }
+      #workspaces button:hover {
+        color: @teal;
+      }
 
-           #workspaces button.urgent {
-      color: @red;
-           }
-
-           #clock,
-           #cpu,
-           #memory,
-           #disk,
-           #temperature,
-           #network,
-           #pulseaudio,
-           #custom-playerctl,
-           #custom-uptime,
-           #window,
-           #workspaces,
-           #cava,
-           #tray {
-      padding: 0 12px;
-           }
-
-           .modules-left > widget:first-child > #workspaces {
-      margin-left: 0;
-           }
-
-           .modules-right > widget:first-child > #workspaces {
-      margin-right: 0;
-           }
-
-           #cpu {
-      color: @green;
-           }
-
-           #cava {
-             color: @maroon;
-           }
-
-           #memory {
-      color: @lavender;
-           }
-
-           #disk {
-      color: @peach;
-           }
-
-           #network {
-      color: @blue;
-           }
-
-           #network.disconnected {
-      color: @red;
-           }
-
-           #pulseaudio {
-      color: @yellow;
-           }
-
-           #pulseaudio.muted {
-      color: @red;
-           }
-
-           #custom-media {
-      color: @teal;
-           }
-
-           #clock {
-      color: @text;
-           }
-
-           #window {
-      color: @text;
-           }
-
-           #temperature {
-      color: @flamingo;
-           }
-
-
-           @keyframes blink {
-      to {
+      #workspaces button.urgent {
         color: @red;
       }
-           }
 
-           #temperature.critical {
-      color: @text;
-      animation-name: blink;
-      animation-duration: 0.5s;
-      animation-timing-function: steps(12);
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-           }
+      #clock,
+      #cpu,
+      #memory,
+      #disk,
+      #temperature,
+      #network,
+      #pulseaudio,
+      #custom-playerctl,
+      #custom-uptime,
+      #window,
+      #workspaces,
+      #cava,
+      #tray {
+        padding: 0 12px;
+      }
+
+      .modules-left > widget:first-child > #workspaces {
+        margin-left: 0;
+      }
+
+      .modules-right > widget:first-child > #workspaces {
+        margin-right: 0;
+      }
+
+      #cpu {
+        color: @green;
+      }
+
+      #cava {
+        color: @maroon;
+      }
+
+      #memory {
+        color: @lavender;
+      }
+
+      #disk {
+        color: @peach;
+      }
+
+      #network {
+        color: @blue;
+      }
+
+      #network.disconnected {
+        color: @red;
+      }
+
+      #pulseaudio {
+        color: @yellow;
+      }
+
+      #pulseaudio.muted {
+        color: @red;
+      }
+
+      #custom-media {
+        color: @teal;
+      }
+
+      #clock {
+        color: @text;
+      }
+
+      #window {
+        color: @text;
+      }
+
+      #temperature {
+        color: @flamingo;
+      }
 
 
-           #custom-playerctl {
-      color: @teal;
-           }
+      @keyframes blink {
+        to {
+          color: @red;
+        }
+      }
 
-           #custom-uptime {
-      color: @sapphire;
-           }
+      #temperature.critical {
+        color: @text;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: steps(12);
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
 
+
+      #custom-playerctl {
+        color: @teal;
+      }
+
+      #custom-uptime {
+        color: @sapphire;
+      }
     '';
   };
 }

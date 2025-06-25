@@ -3,6 +3,7 @@
   pkgs,
   libs,
   catppuccin,
+  quickshell,
   inputs,
   ...
 }: {

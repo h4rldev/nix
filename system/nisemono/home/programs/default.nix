@@ -27,7 +27,6 @@
     ./zsh.nix
     ./mime.nix
     ./fuzzel.nix
-    ./foot.nix
     ./waybar.nix
     ./zellij.nix
     ./udiskie.nix

@@ -8,10 +8,18 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
     nixinate.url = "github:matthewcroughan/nixinate";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/hyprland?submodules=1";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     prism-launcher.url = "github:PrismLauncher/PrismLauncher";
     ghostty.url = "github:ghostty-org/ghostty";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell?ref=v0.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -33,9 +41,11 @@
     nixinate,
     home-manager,
     hyprland,
+    hyprland-plugins,
     prism-launcher,
     nixos-wsl,
     ghostty,
+    quickshell,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -130,44 +140,44 @@
       };
       windows = nixpkgs.lib.nixosSystem {
         inherit system;
-	specialArgs = {inherit inputs;};
-	modules = [
-	  nixos-wsl.nixosModules.default
+        specialArgs = {inherit inputs;};
+        modules = [
+          nixos-wsl.nixosModules.default
           {
-	    wsl = {
-	      enable = true;
-	      defaultUser = "h4rl";
-	      wslConf = {
-	        network.hostname = "windows";
-		user.default = "h4rl";
-	      };
-	    };
-	  }
-	  {
-	    nixpkgs.overlays = overlays;
-	  }
-	  ({pkgs, ...}: {
+            wsl = {
+              enable = true;
+              defaultUser = "h4rl";
+              wslConf = {
+                network.hostname = "windows";
+                user.default = "h4rl";
+              };
+            };
+          }
+          {
+            nixpkgs.overlays = overlays;
+          }
+          ({pkgs, ...}: {
             nixpkgs.config = {
               allowUnfree = true;
-	      allowUnfreePredicate = _: true;
-	    };
-	  })
-	  home-manager.nixosModules.home-manager
-	  {
+              allowUnfreePredicate = _: true;
+            };
+          })
+          home-manager.nixosModules.home-manager
+          {
             home-manager = {
               useGlobalPkgs = true;
-	      useUserPackages = true;
-	      extraSpecialArgs = {inherit inputs;};
-	      users.h4rl = {
+              useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
+              users.h4rl = {
                 home.homeDirectory = "/home/h4rl";
-		imports = [
-		  ./system/windows/home
-		];
-	      };
-	    };
-	  }
-	  ./system/windows
-	];
+                imports = [
+                  ./system/windows/home
+                ];
+              };
+            };
+          }
+          ./system/windows
+        ];
       };
     };
   };

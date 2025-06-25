@@ -11,6 +11,8 @@
     accent = "teal";
   };
 
+  qt.enable = true;
+
   programs = {
     mtr.enable = true;
     gnupg.agent = {
@@ -82,6 +84,10 @@
       enableCompletion = true;
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
+    };
+
+    nix-ld = {
+      enable = true;
     };
 
     neovim = {

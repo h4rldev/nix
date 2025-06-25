@@ -2,13 +2,14 @@
   config,
   pkgs,
   libs,
+  inputs,
   ...
 }: {
   programs.fuzzel = {
     enable = true;
     settings = {
       main = {
-        terminal = "${pkgs.foot}/bin/foot";
+        terminal = "${inputs.ghostty.packages.x86_64-linux.default}/bin/ghostty";
         layer = "overlay";
         font = "JetBrainsMono Nerd Font:size=16";
         dpi-aware = "yes";

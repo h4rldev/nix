@@ -13,6 +13,9 @@
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     xwayland.enable = true;
+    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+      csgo-vulkan-fix
+    ];
 
     settings = {
       exec-once = [
@@ -82,7 +85,7 @@
       };
 
       decoration = {
-        rounding = 7;
+        rounding = 0;
         blur = {
           enabled = true;
           size = 4;
@@ -134,6 +137,7 @@
       windowrule = [
         "float, class:^(drop.term)$"
         "float, class:^(com.saivert.pwvucontrol)$"
+        "opacity 0.7 0.7, class:.*"
       ];
 
       "$mod" = "SUPER";

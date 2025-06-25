@@ -28,6 +28,17 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/mnt/byebyewindows" = {
+    device = "/dev/disk/by-uuid/f9b8f1f3-3c6c-438f-9bc1-a63a10ccf0fd";
+    fsType = "ext4";
+    options = [
+      "users"
+      "x-gvfs-show"
+      "defaults"
+      "exec"
+    ];
+  };
+
   zramSwap = {
     enable = true;
     memoryPercent = 50;

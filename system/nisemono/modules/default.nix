@@ -3,9 +3,17 @@
   pkgs,
   catppuccin,
   hyprland,
-  libs,
+  quickshell,
+  inputs,
+  lib,
   ...
 }: {
+  environment = {
+    systemPackages = [
+      inputs.quickshell.packages.x86_64-linux.default
+    ];
+  };
+
   imports = [
     ./boot.nix
     ./networking.nix

@@ -133,7 +133,7 @@ rebuild() {
 
 update_entire_system() {
         update_lock
-        rebuild "${@}"
+        rebuild
 }
 
 case ${1} in
@@ -145,11 +145,11 @@ case ${1} in
         ;;
 
 "rebuild")
-        rebuild "${@}"
+        rebuild
         ;;
 
 "all" | *)
-        update_entire_system "${@}"
+        update_entire_system
         ;;
 esac
 
