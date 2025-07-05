@@ -73,9 +73,9 @@
       };
 
       general = {
-        gaps_in = 5;
-        gaps_out = 15;
-        border_size = 3;
+        gaps_in = 10;
+        gaps_out = 10;
+        border_size = 2;
         "col.active_border" = "rgb(cdd6f4)";
         "col.inactive_border" = "rgb(11111b)";
 
@@ -137,7 +137,8 @@
       windowrule = [
         "float, class:^(drop.term)$"
         "float, class:^(com.saivert.pwvucontrol)$"
-        "opacity 0.7 0.7, class:.*"
+        "opacity 0.9 0.9 1.0, class:.*"
+        "opacity 1.0 1.0 1.0, class:^(org.vinegarhq.Sober)$"
       ];
 
       "$mod" = "SUPER";

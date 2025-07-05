@@ -69,11 +69,33 @@ in {
     pipewire = {
       enable = true;
       audio.enable = true;
-      wireplumber.enable = true;
       pulse.enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       jack.enable = true;
+      wireplumber = {
+        enable = true;
+        configPackages = [
+          (pkgs.writeTextDir "share/wireplumber/main.lua.d/99-clock-settings.lua" ''
+            context.properties = {
+              default.clock.rate = nil,
+              default.clock.quantum = nil,
+              default.clock.min-quantum = nil,
+              default.clock.max-quantum = nil,
+              default.clock.force-rate = nil,
+              default.clock.force-quantum = nil,
+              default.clock.allowed-rates = nil
+            }
+          '')
+        ];
+      };
+    };
+
+    sunshine = {
+      enable = false;
+      autoStart = true;
+      capSysAdmin = true;
+      openFirewall = true;
     };
 
     gnome = {

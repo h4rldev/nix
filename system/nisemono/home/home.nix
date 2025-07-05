@@ -53,7 +53,6 @@
       keybase-gui
       # nextcloud-client
       vscode
-      obs-studio
       # nicotine-plus
       pyprland
       # riseup-vpn
@@ -61,7 +60,6 @@
       qbittorrent
       keepassxc
       picard
-      dolphin-emu
       prismlauncher
       brave
       # steam-run
@@ -71,7 +69,7 @@
       lua
       ripgrep
       piper
-      teamspeak5_client
+      teamspeak6-client
       # telegram-desktop
       # floorp
       feishin
@@ -111,9 +109,11 @@
       croc
 
       chatterino7
+      cemu
+      # parsec-bin
+      moonlight-qt
 
       geogebra6
-      # gimp-with-plugins
       inputs.ghostty.packages.x86_64-linux.default
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));

@@ -11,7 +11,7 @@
         layer = "top";
         position = "top";
         output = "DP-1";
-        height = 36;
+        height = 32;
         width = 2560;
         margin-top = 0;
         spacing = 0;
@@ -27,7 +27,8 @@
         modules-right = [
           "tray"
           "custom/uptime"
-          "disk"
+          "disk#1"
+          "disk#2"
           "memory"
           "temperature"
           "cpu"
@@ -83,14 +84,14 @@
           on-click-right = "playerctl next";
           tooltip = false;
           format-icons = {
-            Playing = "<span> </span>";
-            Paused = "<span> </span>";
-            Stopped = "<span> </span>";
+            Playing = "<span> </span>";
+            Paused = "<span> </span>";
+            Stopped = "<span> </span>";
           };
         };
 
         "cava" = {
-          framerate = 60;
+          framerate = 165;
           autosens = 0;
           sensitivity = 10;
           bars = 28;
@@ -130,10 +131,16 @@
           interval = 5;
         };
 
-        "disk" = {
+        "disk#1" = {
           interval = 30;
           format = "{path} - {percentage_free}% ";
           path = "/";
+        };
+
+        "disk#2" = {
+          interval = 30;
+          format = "{path} - {percentage_free}% ";
+          path = "/mnt/byebyewindows/";
         };
 
         "memory" = {
@@ -194,8 +201,8 @@
         layer = "top";
         position = "top";
         output = "HDMI-A-1";
-        height = 36;
-        width = 1650;
+        height = 32;
+        width = 1680;
         margin-top = 0;
         spacing = 0;
 
@@ -209,9 +216,29 @@
           "hyprland/window"
         ];
         modules-right = [
+          "tray"
+          "disk#1"
+          "disk#2"
           "custom/uptime"
           "clock"
         ];
+
+        "tray" = {
+          # "icon-size": 21,
+          spacing = 10;
+        };
+
+        "disk#1" = {
+          interval = 30;
+          format = "{path} - {percentage_free}% ";
+          path = "/";
+        };
+
+        "disk#2" = {
+          interval = 30;
+          format = "{path} - {percentage_free}% ";
+          path = "/mnt/byebyewindows/";
+        };
 
         "hyprland/window" = {
           max-length = 30;
@@ -313,11 +340,11 @@
             on-scroll = 1;
             on-click-right = "mode";
             format = {
-              months = "<span color='#ffead3'><b>{}</b></span>";
-              days = "<span color='#ecc6d9'><b>{}</b></span>";
-              weeks = "<span color='#99ffdd'><b>W{:%W}</b></span>";
-              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+              months = "<span color='#f9e2af'><b>{}</b></span>";
+              days = "<span color='#f5c2e7'><b>{}</b></span>";
+              weeks = "<span color='#94e2d5'><b>W{:%W}</b></span>";
+              weekdays = "<span color='#fab387'><b>{}</b></span>";
+              today = "<span color='#f38ba8'><b><u>{}</u></b></span>";
             };
           };
           actions = {
@@ -362,12 +389,7 @@
 
       window#waybar {
         color: @text;
-        background-color: @base;
-        opacity: 0.7;
-      }
-
-      window#waybar.hidden {
-        opacity: 0.2;
+        background-color: transparent;
       }
 
       button {
@@ -466,7 +488,6 @@
         color: @flamingo;
       }
 
-
       @keyframes blink {
         to {
           color: @red;
@@ -481,7 +502,6 @@
         animation-iteration-count: infinite;
         animation-direction: alternate;
       }
-
 
       #custom-playerctl {
         color: @teal;

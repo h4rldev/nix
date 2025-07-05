@@ -14,6 +14,11 @@
   qt.enable = true;
 
   programs = {
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
@@ -88,6 +93,16 @@
 
     nix-ld = {
       enable = true;
+    };
+
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+      ];
     };
 
     neovim = {
