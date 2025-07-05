@@ -43,5 +43,6 @@
     ./ibus.nix
     ./sshfs.nix
     ./hypridle.nix
+    ./zed.nix
   ];
 }
