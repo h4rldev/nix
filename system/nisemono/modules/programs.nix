@@ -84,6 +84,8 @@
       dedicatedServer.openFirewall = true;
     };
 
+    sniffnet.enable = true;
+
     zsh = {
       enable = true;
       enableCompletion = true;

@@ -104,14 +104,18 @@
       # distrho-ports
       # zam-plugins
 
+      ouch
       xournalpp
       obsidian
       croc
 
-      chatterino7
+      # chatterino7
       cemu
       # parsec-bin
       moonlight-qt
+      aseprite
+
+      gimp
 
       geogebra6
       inputs.ghostty.packages.x86_64-linux.default
@@ -165,6 +169,7 @@
   home.sessionPath = [
     "/home/h4rl/.config/nix/"
     "/home/h4rl/.cargo/bin"
+    "/home/h4rl/.bin/"
   ];
 
   # Let Home Manager install and manage itself.

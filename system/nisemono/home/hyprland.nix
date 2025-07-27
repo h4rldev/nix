@@ -22,6 +22,7 @@
         "hyprctl dispatch movecursor 1280 720 &"
         "pypr &"
         "mullvad-vpn &"
+        "animu_presence &"
         "xrandr --output DP-1 --primary &"
 
         # "swww-daemon &"
