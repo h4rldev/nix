@@ -44,5 +44,6 @@
     ./sshfs.nix
     ./hypridle.nix
     ./zed.nix
+    ./brave.nix
   ];
 }

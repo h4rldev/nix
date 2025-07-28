@@ -13,23 +13,23 @@
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod"];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/aece897d-f9a2-4b63-acad-28b906761e19";
+    device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/387A-5B1E";
+    device = "/dev/disk/by-label/boot";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   fileSystems."/mnt/byebyewindows" = {
-    device = "/dev/disk/by-uuid/f9b8f1f3-3c6c-438f-9bc1-a63a10ccf0fd";
+    device = "/dev/disk/by-label/byebyewindows";
     fsType = "ext4";
     options = [
       "users"
@@ -52,10 +52,30 @@
   # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.opentabletdriver = {
-    enable = true;
-    package = pkgs.opentabletdriver;
-    daemon.enable = true;
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    opentabletdriver = {
+      enable = true;
+      package = pkgs.opentabletdriver;
+      daemon.enable = true;
+    };
+
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        amdvlk
+      ];
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+      ];
+    };
+
+    amdgpu = {
+      initrd.enable = true;
+      amdvlk = {
+        enable = true;
+      };
+    };
   };
 }

@@ -61,7 +61,6 @@
       keepassxc
       picard
       prismlauncher
-      brave
       # steam-run
       osu-lazer-bin
       jellyfin-media-player
