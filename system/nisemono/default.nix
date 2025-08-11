@@ -3,7 +3,8 @@
   pkgs,
   libs,
   catppuccin,
-  quickshell,
+  # quickshell,
+  stylix,
   inputs,
   ...
 }: {

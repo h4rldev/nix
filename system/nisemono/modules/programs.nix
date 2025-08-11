@@ -31,7 +31,7 @@
 
     regreet = {
       enable = true;
-      package = pkgs.greetd.regreet;
+      package = pkgs.regreet;
       theme = {
         name = "catppuccin-mocha-teal-standard+default";
         package = pkgs.catppuccin-gtk;

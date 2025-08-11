@@ -1,5 +1,5 @@
 {
-  hyprland,
+  # hyprland,
   pkgs,
   config,
   libs,
@@ -9,11 +9,14 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+
+    package = pkgs.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
     xwayland.enable = true;
-    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+    plugins = with pkgs.hyprlandPlugins; [
       csgo-vulkan-fix
     ];
 
@@ -24,6 +27,7 @@
         "mullvad-vpn &"
         "animu_presence &"
         "xrandr --output DP-1 --primary &"
+        "syshud -p top &"
 
         # "swww-daemon &"
         # "swww img --resize=crop ${config.home.homeDirectory}/.config/nix/.wallpapers/pixelhoo_ramen_shop.gif &"
@@ -152,7 +156,7 @@
           "CTRL SHIFT, Print, exec, $outputScreenshot"
           ", Print, exec, $fullScreenshot"
           "$mod, E, exec, $fileManager"
-          "$mod, L, exec, $logout"
+          "$mod, L, exec, syspower"
           "$mod, F, togglefloating,"
           "$mod SHIFT, F, fullscreenstate, 2 2"
           "$mod CTRL, F, fullscreenstate, -1 2"

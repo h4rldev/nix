@@ -6,6 +6,11 @@
 }: {
   programs.waybar = {
     enable = true;
+    systemd = {
+      enable = true;
+      target = "graphical-session.target";
+    };
+
     settings = {
       mainBar = {
         layer = "top";
@@ -29,6 +34,8 @@
           "custom/uptime"
           "disk#1"
           "disk#2"
+          "temperature#1"
+          "temperature#2"
           "memory"
           "temperature"
           "cpu"
@@ -131,6 +138,20 @@
           interval = 5;
         };
 
+        "temperature#1" = {
+          hwmon-path = "/sys/devices/pci0000:00/0000:00:03.1/0000:09:00.0/0000:0a:00.0/0000:0b:00.0/hwmon/hwmon0/temp1_input";
+          critical-threshold = 80;
+          format-critical = "!!! {temperatureC}°C GPU !!!";
+          format = "{temperatureC}°C GPU";
+        };
+
+        "temperature#2" = {
+          hwmon-path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input";
+          critical-threshold = 80;
+          format-critical = "!!! {temperatureC}°C CPU !!!";
+          format = "{temperatureC}°C CPU";
+        };
+
         "disk#1" = {
           interval = 30;
           format = "{path} - {percentage_free}% ";
@@ -139,7 +160,7 @@
 
         "disk#2" = {
           interval = 30;
-          format = "{path} - {percentage_free}% ";
+          format = "byebyewindows - {percentage_free}% ";
           path = "/mnt/byebyewindows/";
         };
 
@@ -219,6 +240,8 @@
           "tray"
           "disk#1"
           "disk#2"
+          "temperature#1"
+          "temperature#2"
           "custom/uptime"
           "clock"
         ];
@@ -236,7 +259,7 @@
 
         "disk#2" = {
           interval = 30;
-          format = "{path} - {percentage_free}% ";
+          format = "byebyewindows - {percentage_free}% ";
           path = "/mnt/byebyewindows/";
         };
 
@@ -327,6 +350,20 @@
           tooltip = false;
           exec = "uptime | sed -e 's/.*up \\([^,]*\\).*/\\1/' | xargs";
           interval = 5;
+        };
+
+        "temperature#1" = {
+          hwmon-path = "/sys/devices/pci0000:00/0000:00:03.1/0000:09:00.0/0000:0a:00.0/0000:0b:00.0/hwmon/hwmon0/temp1_input";
+          critical-threshold = 80;
+          format-critical = "!!! {temperatureC}°C GPU !!!";
+          format = "{temperatureC}°C GPU";
+        };
+
+        "temperature#2" = {
+          hwmon-path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input";
+          critical-threshold = 80;
+          format-critical = "!!! {temperatureC}°C CPU !!!";
+          format = "{temperatureC}°C CPU";
         };
 
         "clock" = {

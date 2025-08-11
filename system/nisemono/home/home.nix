@@ -114,10 +114,18 @@
       moonlight-qt
       aseprite
 
+      # volume
+      syshud
+
+      # power menu
+      syspower
+      # ollama-rocm
+
       gimp
 
       geogebra6
       inputs.ghostty.packages.x86_64-linux.default
+      # inputs.zen-browser.packages.x86_64-linux.zen-browser
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
 

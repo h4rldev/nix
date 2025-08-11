@@ -60,22 +60,22 @@
       daemon.enable = true;
     };
 
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-        amdvlk
-      ];
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
-      ];
-    };
+    #  graphics = {
+    #    enable = true;
+    #    enable32Bit = true;
+    #    extraPackages = with pkgs; [
+    #      amdvlk
+    #    ];
+    #    extraPackages32 = with pkgs; [
+    #      driversi686Linux.amdvlk
+    #    ];
+    #  };
 
-    amdgpu = {
-      initrd.enable = true;
-      amdvlk = {
-        enable = true;
-      };
-    };
+    #  amdgpu = {
+    #    initrd.enable = true;
+    #    amdvlk = {
+    #      enable = true;
+    #    };
+    #  };
   };
 }

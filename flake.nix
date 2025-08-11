@@ -2,26 +2,37 @@
   description = "h4rls system flake";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs?ref=master";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs?ref=master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
-    nixinate.url = "github:matthewcroughan/nixinate";
-    hyprland.url = "github:hyprwm/hyprland?submodules=1";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    prism-launcher.url = "github:PrismLauncher/PrismLauncher";
-    ghostty.url = "github:ghostty-org/ghostty";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    quickshell = {
-      url = "github:quickshell-mirror/quickshell?ref=v0.1.0";
+    stylix = {
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # zen-browser = {
+    #   url = "github:PaideiaDilemma/zen-browser-nix-build";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    catppuccin.url = "github:catppuccin/nix";
+    nixinate.url = "github:matthewcroughan/nixinate";
+    # hyprland.url = "github:hyprwm/hyprland?submodules=1";
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "nixpkgs";
+    # };
+    prism-launcher.url = "github:PrismLauncher/PrismLauncher";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    # quickshell = {
+    #   url = "github:quickshell-mirror/quickshell?ref=v0.1.0";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   nixConfig = {
@@ -42,12 +53,14 @@
     catppuccin,
     nixinate,
     home-manager,
-    hyprland,
-    hyprland-plugins,
+    # hyprland,
+    # hyprland-plugins,
+    # zen-browser,
     prism-launcher,
     nixos-wsl,
     ghostty,
-    quickshell,
+    stylix,
+    # quickshell,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -59,7 +72,7 @@
       };
     };
     overlays = [
-      hyprland.overlays.default
+      # hyprland.overlays.default
       prism-launcher.overlays.default
     ];
   in rec {
@@ -80,6 +93,7 @@
               allowBrokenPredicate = _: true;
             };
           })
+          stylix.nixosModules.stylix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
@@ -91,7 +105,7 @@
                 home.homeDirectory = "/home/h4rl";
                 imports = [
                   catppuccin.homeModules.catppuccin
-                  hyprland.homeManagerModules.default
+                  # hyprland.homeManagerModules.default
                   ./system/suicide-box/home
                 ];
               };
@@ -119,6 +133,7 @@
               allowBrokenPredicate = _: true;
             };
           })
+          stylix.nixosModules.stylix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
@@ -130,7 +145,7 @@
                 home.homeDirectory = "/home/h4rl";
                 imports = [
                   catppuccin.homeModules.catppuccin
-                  hyprland.homeManagerModules.default
+                  # hyprland.homeManagerModules.default
                   ./system/nisemono/home
                 ];
               };

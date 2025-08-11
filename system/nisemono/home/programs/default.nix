@@ -3,6 +3,7 @@
   catppuccin,
   home,
   inputs,
+  stylix,
   hyprland,
   ...
 }: {
@@ -36,6 +37,7 @@
     ./wlogout.nix
     ./fastfetch.nix
     # ./emacs.nix
+    ./stylix.nix
     ./mako.nix
     ./zoxide.nix
     ./catppuccin.nix

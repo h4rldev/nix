@@ -91,8 +91,19 @@ in {
       };
     };
 
-    sunshine = {
+    ollama = {
       enable = false;
+      package = pkgs.ollama-rocm;
+      acceleration = "rocm";
+      rocmOverrideGfx = "10.1.0";
+      models = "/mnt/byebyewindows/ollama/models";
+      loadModels = [
+        "qwen2.5-coder:14b"
+      ];
+    };
+
+    sunshine = {
+      enable = true;
       autoStart = true;
       capSysAdmin = true;
       openFirewall = true;

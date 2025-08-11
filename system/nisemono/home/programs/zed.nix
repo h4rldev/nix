@@ -9,6 +9,8 @@
       hyprls
       nil
       vue-language-server
+      shellcheck
+      shfmt
     ];
 
     extensions = [
@@ -28,6 +30,7 @@
       "caddyfile"
       "cargo-appraiser"
       "dockerfile"
+      "basher"
       "docker-compose"
       "env"
       "hyprlang"
@@ -92,13 +95,13 @@
 
       agent = {
         default_model = {
-          provider = "copilot_chat";
-          model = "claude-3.7-sonnet-thought";
+          provider = "openrouter";
+          model = "horizon-beta";
         };
       };
 
       features = {
-        edit_prediction_provider = "copilot";
+        edit_prediction_provider = "supermaven";
       };
 
       terminal = {

@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  catppuccin = {
+  /* catppuccin = {
     enable = true;
     cursors = {
       enable = true;
@@ -30,14 +30,16 @@
     };
 
     gtk = {
+      /*
       enable = true;
       flavor = "mocha";
       accent = "teal";
+      */
       icon = {
         enable = true;
         flavor = "mocha";
         accent = "teal";
       };
     };
-  };
+  }; */
 }

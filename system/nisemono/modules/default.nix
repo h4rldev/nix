@@ -3,17 +3,12 @@
   pkgs,
   catppuccin,
   hyprland,
-  quickshell,
+  # quickshell,
   inputs,
+  stylix,
   lib,
   ...
 }: {
-  environment = {
-    systemPackages = [
-      inputs.quickshell.packages.x86_64-linux.default
-    ];
-  };
-
   imports = [
     ./boot.nix
     ./networking.nix
@@ -22,5 +17,6 @@
     ./virtualisation.nix
     ./security.nix
     ./catppuccin.nix
+    ./stylix.nix
   ];
 }
