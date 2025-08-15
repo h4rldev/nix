@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  programs.zoxide = {
+  programs.carapace = {
     enable = true;
     enableZshIntegration = true;
     enableNushellIntegration = true;

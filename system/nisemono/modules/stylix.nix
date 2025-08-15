@@ -40,6 +40,8 @@
       size = 18;
     };
 
+    image = null;
+
     fonts = {
       emoji = {
         package = pkgs.noto-fonts-emoji-blob-bin;
@@ -52,13 +54,6 @@
       };
 
       packages = [] ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
-    };
-
-    icons = {
-      enable = true;
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
-      package = pkgs.catppuccin-papirus-folders;
     };
   };
 }

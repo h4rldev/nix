@@ -11,5 +11,6 @@
     ./home.nix
     ./hyprland.nix
     ./programs
+    ./services
   ];
 }

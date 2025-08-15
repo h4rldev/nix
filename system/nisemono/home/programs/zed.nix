@@ -11,6 +11,9 @@
       vue-language-server
       shellcheck
       shfmt
+      nixd
+      gcc
+      clang
     ];
 
     extensions = [

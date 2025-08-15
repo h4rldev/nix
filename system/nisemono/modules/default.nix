@@ -17,6 +17,6 @@
     ./virtualisation.nix
     ./security.nix
     ./catppuccin.nix
-    ./stylix.nix
+    # ./stylix.nix
   ];
 }

@@ -1,16 +1,16 @@
 {
   pkgs,
   config,
-  libs,
+  lib,
   ...
 }: {
   qt = {
     enable = true;
     platformTheme = {
-      name = "kvantum";
+      name = lib.mkForce "kvantum";
     };
     style = {
-      name = "kvantum";
+      name = lib.mkForce "kvantum";
     };
   };
 }

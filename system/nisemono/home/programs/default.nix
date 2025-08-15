@@ -47,5 +47,7 @@
     ./hypridle.nix
     ./zed.nix
     ./brave.nix
+    ./carapace.nix
+    ./nushell.nix
   ];
 }

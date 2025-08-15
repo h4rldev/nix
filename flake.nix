@@ -144,6 +144,7 @@
               users.h4rl = {
                 home.homeDirectory = "/home/h4rl";
                 imports = [
+                  stylix.homeModules.stylix
                   catppuccin.homeModules.catppuccin
                   # hyprland.homeManagerModules.default
                   ./system/nisemono/home

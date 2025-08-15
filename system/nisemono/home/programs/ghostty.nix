@@ -14,6 +14,7 @@
     settings = {
       theme = "catppuccin-mocha";
       gtk-titlebar = false;
+      command = "nu";
     };
   };
 }

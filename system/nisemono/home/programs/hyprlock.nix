@@ -6,7 +6,8 @@
 }: {
   programs.hyprlock = {
     enable = true;
-    settings = {
+    /*
+       settings = {
       "$rosewater" = "rgb(f5e0dc)";
       "$rosewaterAlpha" = "f5e0dc";
 
@@ -101,13 +102,13 @@
           monitor = "DP-1";
           path = "${config.home.homeDirectory}/.config/nix/.wallpapers/bliss.jpg";
           blur_passes = 0;
-          color = "$base";
+          # color = "$base";
         }
         {
           monitor = "HDMI-A-1";
           path = "${config.home.homeDirectory}/.config/nix/.wallpapers/bliss.jpg";
           blur_passes = 0;
-          color = "$base";
+          # color = "$base";
         }
       ];
 
@@ -117,9 +118,9 @@
         {
           monitor = "DP-1";
           text = "$TIME";
-          color = "$text";
-          font_size = 90;
-          font_family = "$font";
+          # color = "$text";
+          font_size = lib.mkForce 90;
+          font_family = lib.mkForce "$font";
           position = "-30, 0";
           halign = "right";
           valign = "top";
@@ -127,9 +128,9 @@
         {
           monitor = "DP-1";
           text = "cmd[update:43200000] date +\"%A, %d %B %Y\"";
-          color = "$text";
-          font_size = 25;
-          font_family = "$font";
+          # color = "$text";
+          font_size = lib.mkForce 25;
+          font_family = lib.mkForce "$font";
           position = "-30, -150";
           halign = "right";
           valign = "top";
@@ -141,7 +142,7 @@
         monitor = "DP-1";
         path = "${config.home.homeDirectory}/.config/nix/.face/h4rl.png";
         size = 100;
-        border_color = "$accent";
+        # border_color = "$accent";
         position = "0, 75";
         halign = "center";
         valign = "center";
@@ -161,14 +162,15 @@
         fade_on_empty = false;
         placeholder_text = "<span foreground=\"##$textAlpha\"><i>󰌾 Logged in as </i><span foreground=\"##$accentAlpha\">$USER</span></span>";
         hide_input = false;
-        check_color = "$accent";
-        fail_color = "$red";
+        # check_color = "$accent";
+        # fail_color = "$red";
         fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
-        capslock_color = "$yellow";
+        # capslock_color = "$yellow";
         position = "0, -47";
         halign = "center";
         valign = "center";
       };
     };
+    */
   };
 }

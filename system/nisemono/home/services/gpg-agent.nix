@@ -1,7 +1,8 @@
 {pkgs, ...}: {
-  programs.zoxide = {
+  services.gpg-agent = {
     enable = true;
     enableZshIntegration = true;
     enableNushellIntegration = true;
+    enableSshSupport = true;
   };
 }
