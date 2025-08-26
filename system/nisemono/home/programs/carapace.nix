@@ -2,6 +2,6 @@
   programs.carapace = {
     enable = true;
     enableZshIntegration = true;
-    enableNushellIntegration = true;
+    # enableNushellIntegration = true;
   };
 }

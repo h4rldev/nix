@@ -45,9 +45,10 @@
     ./ibus.nix
     ./sshfs.nix
     ./hypridle.nix
+    ./xdg-portal.nix
     ./zed.nix
     ./brave.nix
     ./carapace.nix
-    ./nushell.nix
+    # ./nushell.nix
   ];
 }

@@ -65,7 +65,7 @@
     targets = {
       hyprland.enable = false;
       zed.enable = false;
-      qt.enable = false;
+      qt.enable = true;
       gtk.enable = true;
     };
   };

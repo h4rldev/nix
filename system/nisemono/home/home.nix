@@ -96,7 +96,9 @@
       mangohud
       gamemode
       # zrythm
-      telegram-desktop
+      # telegram-desktop
+
+      ayugram-desktop
 
       # plugins for zrythm
       # helm
