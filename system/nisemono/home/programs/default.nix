@@ -49,7 +49,6 @@
     ./zed.nix
     ./brave.nix
     ./carapace.nix
-    ./hyfetch.nix
     # ./nushell.nix
   ];
 }

@@ -124,6 +124,7 @@
       # ollama-rocm
 
       gimp
+      neofetch
 
       geogebra6
       inputs.ghostty.packages.x86_64-linux.default
