@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   users.groups.libvirtd.members = ["h4rl"];
   virtualisation = {
     spiceUSBRedirection.enable = true;

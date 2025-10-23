@@ -1,14 +1,4 @@
-{
-  config,
-  pkgs,
-  catppuccin,
-  hyprland,
-  # quickshell,
-  inputs,
-  stylix,
-  lib,
-  ...
-}: {
+{...}: {
   imports = [
     ./boot.nix
     ./networking.nix

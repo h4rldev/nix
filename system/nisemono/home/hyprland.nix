@@ -29,9 +29,9 @@
         # "swww-daemon &"
         # "swww img --resize=crop ${config.home.homeDirectory}/.config/nix/.wallpapers/pixelhoo_ramen_shop.gif &"
         "hyprctl setcursor catppuccin-mocha-light-cursors 18"
-        "fcitx5-remote -r"
-        "fcitx5 -d --replace &"
-        "fcitx5-remote -r"
+        # "fcitx5-remote -r"
+        # "fcitx5 -d --replace &"
+        # "fcitx5-remote -r"
       ];
 
       "$monitor1" = "DP-1";

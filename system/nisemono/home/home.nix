@@ -63,7 +63,7 @@
       signal-desktop
       mangohud
       gamemode
-      ayugram-desktop
+      # ayugram-desktop
 
       ouch
       xournalpp

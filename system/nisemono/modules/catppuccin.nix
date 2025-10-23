@@ -1,9 +1,4 @@
-{
-  catppuccin,
-  config,
-  lib,
-  ...
-}: {
+{...}: {
   catppuccin = {
     enable = true;
     grub = {

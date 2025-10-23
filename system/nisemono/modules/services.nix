@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  libs,
   ...
 }: let
   hyprlandConfig = pkgs.writeText "greetd-hyprland-config" ''

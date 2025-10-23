@@ -49,13 +49,6 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate = _: true;
-      };
-    };
     overlays = [
       # hyprland.overlays.default
       prism-launcher.overlays.default
@@ -68,16 +61,19 @@
         specialArgs = {inherit inputs;};
         modules = [
           {
-            nixpkgs.overlays = overlays;
-          }
-          ({pkgs, ...}: {
-            nixpkgs.config = {
-              allowUnfree = true;
-              allowUnfreePredicate = _: true;
-              allowBroken = true;
-              allowBrokenPredicate = _: true;
+            nixpkgs = {
+              overlays = overlays;
+              config = {
+                permittedInsecurePackages = [
+                  # "electron-33.4.11"
+                  # "qtwebengine-5.15.19"
+                  # "olm-3.2.16"
+                ];
+                allowUnfree = true;
+                allowUnfreePredicate = _: true;
+              };
             };
-          })
+          }
           stylix.nixosModules.stylix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
@@ -105,21 +101,19 @@
         specialArgs = {inherit inputs;};
         modules = [
           {
-            nixpkgs.overlays = overlays;
-            nixpkgs.config.permittedInsecurePackages = [
-              "electron-33.4.11"
-              "qtwebengine-5.15.19"
-              "olm-3.2.16"
-            ];
-          }
-          ({pkgs, ...}: {
-            nixpkgs.config = {
-              allowUnfree = true;
-              allowUnfreePredicate = _: true;
-              allowBroken = true;
-              allowBrokenPredicate = _: true;
+            nixpkgs = {
+              overlays = overlays;
+              config = {
+                permittedInsecurePackages = [
+                  # "electron-33.4.11"
+                  # "qtwebengine-5.15.19"
+                  # "olm-3.2.16"
+                ];
+                allowUnfree = true;
+                allowUnfreePredicate = _: true;
+              };
             };
-          })
+          }
           stylix.nixosModules.stylix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
@@ -147,6 +141,20 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
+          {
+            nixpkgs = {
+              overlays = overlays;
+              config = {
+                permittedInsecurePackages = [
+                  # "electron-33.4.11"
+                  # "qtwebengine-5.15.19"
+                  # "olm-3.2.16"
+                ];
+                allowUnfree = true;
+                allowUnfreePredicate = _: true;
+              };
+            };
+          }
           nixos-wsl.nixosModules.default
           {
             wsl = {
@@ -158,15 +166,7 @@
               };
             };
           }
-          {
-            nixpkgs.overlays = overlays;
-          }
-          ({pkgs, ...}: {
-            nixpkgs.config = {
-              allowUnfree = true;
-              allowUnfreePredicate = _: true;
-            };
-          })
+
           home-manager.nixosModules.home-manager
           {
             home-manager = {
