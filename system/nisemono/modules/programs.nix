@@ -1,8 +1,7 @@
 {
   config,
-  lib,
   pkgs,
-  catppuccin,
+  inputs,
   ...
 }: {
   catppuccin = {
@@ -12,6 +11,13 @@
   };
 
   qt.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    (bottles.override
+      {
+        removeWarningPopup = true;
+      })
+  ];
 
   programs = {
     appimage = {
@@ -97,6 +103,11 @@
       enable = true;
     };
 
+    gpu-screen-recorder = {
+      enable = true;
+      package = pkgs.gpu-screen-recorder;
+    };
+
     obs-studio = {
       enable = true;
       enableVirtualCamera = false;
@@ -109,6 +120,7 @@
 
     neovim = {
       enable = true;
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       defaultEditor = true;
     };
 

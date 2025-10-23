@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  catppuccin,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "h4rl";
@@ -23,7 +17,7 @@
   # environment.
   home.packages = with pkgs;
     [
-      yacreader
+      # yacreader
       libnotify
       font-awesome
       noto-fonts
@@ -31,104 +25,60 @@
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
       noto-fonts-emoji-blob-bin
-      emacs-all-the-icons-fonts
       wl-clipboard
-      just
       rustup
       unzip
       zip
       luarocks
       pcmanfm
-      # nautilus
       grimblast
       satty
       playerctl
       pwvucontrol
-      deadbeef-with-plugins
-      deno
       alejandra
       xarchiver
-      # vesktop
+      vesktop
       equibop
       keybase-gui
-      # nextcloud-client
       vscode
-      # nicotine-plus
       pyprland
-      # riseup-vpn
       wakatime
       qbittorrent
       keepassxc
-      picard
       prismlauncher
-      # steam-run
       osu-lazer-bin
-      jellyfin-media-player
       onlyoffice-bin_latest
-      lua
       ripgrep
       piper
       teamspeak6-client
-      # telegram-desktop
-      # floorp
       feishin
 
-      nodePackages_latest.svelte-language-server
-      nodePackages_latest.typescript-language-server
-      vscode-langservers-extracted
-      bash-language-server
+      tree-sitter
 
-      kdePackages.qtdeclarative
-
-      mdformat
-      cbfmt
-      alejandra
-      shfmt
-      beautysh
       gamescope
       fuse
 
       wineWow64Packages.waylandFull
-      minecraft
 
       signal-desktop
-      xorg.xrandr
       mangohud
       gamemode
-      # zrythm
-      # telegram-desktop
-
       ayugram-desktop
-
-      # plugins for zrythm
-      # helm
-      # distrho-ports
-      # zam-plugins
 
       ouch
       xournalpp
       obsidian
       croc
 
-      # chatterino7
-      cemu
-      # parsec-bin
       moonlight-qt
-      aseprite
 
       # volume
       syshud
 
       # power menu
       syspower
-      # ollama-rocm
 
       gimp
-      neofetch
-
-      geogebra6
-      inputs.ghostty.packages.x86_64-linux.default
-      # inputs.zen-browser.packages.x86_64-linux.zen-browser
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
 

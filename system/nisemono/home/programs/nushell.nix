@@ -1,3 +1,4 @@
+# Won't use yet, cause my terminal doesn't really like it
 {pkgs, ...}: let
   nushellScripts = ../nu;
 in {

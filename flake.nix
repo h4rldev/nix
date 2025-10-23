@@ -12,27 +12,15 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # zen-browser = {
-    #   url = "github:PaideiaDilemma/zen-browser-nix-build";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     catppuccin.url = "github:catppuccin/nix";
     nixinate.url = "github:matthewcroughan/nixinate";
-    # hyprland.url = "github:hyprwm/hyprland?submodules=1";
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "nixpkgs";
-    # };
     prism-launcher.url = "github:PrismLauncher/PrismLauncher";
     ghostty = {
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    # quickshell = {
-    #   url = "github:quickshell-mirror/quickshell?ref=v0.1.0";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   nixConfig = {
@@ -53,14 +41,11 @@
     catppuccin,
     nixinate,
     home-manager,
-    # hyprland,
-    # hyprland-plugins,
-    # zen-browser,
     prism-launcher,
     nixos-wsl,
     ghostty,
     stylix,
-    # quickshell,
+    neovim-nightly-overlay,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -123,6 +108,8 @@
             nixpkgs.overlays = overlays;
             nixpkgs.config.permittedInsecurePackages = [
               "electron-33.4.11"
+              "qtwebengine-5.15.19"
+              "olm-3.2.16"
             ];
           }
           ({pkgs, ...}: {
@@ -198,5 +185,17 @@
         ];
       };
     };
+    devShells.x86_64-linux.default = let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+      pkgs.mkShell {
+        buildInputs = with pkgs; [
+          alejandra
+          nix-prefetch
+          nurl
+          nixd
+        ];
+      };
   };
 }

@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  libs,
-  ...
-}: {
+{pkgs, ...}: {
   environment = {
     systemPackages = with pkgs; [
       wget
@@ -14,6 +9,9 @@
       nodejs
       lshw
       ntfs3g
+      openjdk17-bootstrap
+      openjdk8-bootstrap
+      gnumake
     ];
 
     sessionVariables = {

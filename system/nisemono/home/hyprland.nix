@@ -1,14 +1,11 @@
 {
   # hyprland,
   pkgs,
-  config,
-  libs,
-  inputs,
   ...
 }: {
-  wayland.windowManager.hyprland = {
-    enable = true;
+  wayland.windowManager.hyprland.enable = true;
 
+  wayland.windowManager.hyprland = {
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
@@ -26,7 +23,7 @@
         "pypr &"
         "mullvad-vpn &"
         "animu_presence &"
-        "xrandr --output DP-1 --primary &"
+        "exec-once=wlr-randr --output HDMI-A-1 --off && sleep 3 && wlr-randr --output HDMI-A-1 --on --pos -1680,330"
         "syshud -p top &"
 
         # "swww-daemon &"
@@ -54,6 +51,7 @@
       "$fullScreenshot" = "grimblast --notify --freeze save screen - | satty --copy-command wl-copy --fullscreen --filename -";
       "$logout" = "wlogout -b 4";
       "$volume" = "/home/h4rl/.config/nix/.bin/volume";
+      "$clip" = "pkill -SIGUSR1 -f gpu-screen-recorder";
 
       env = [
         "HYPRCURSOR_SIZE, 18"
@@ -125,7 +123,7 @@
       };
 
       gestures = {
-        workspace_swipe = "off";
+        workspace = "unset";
       };
 
       misc = {
@@ -144,6 +142,8 @@
         "float, class:^(com.saivert.pwvucontrol)$"
         "opacity 0.9 0.9 1.0, class:.*"
         "opacity 1.0 1.0 1.0, class:^(org.vinegarhq.Sober)$"
+        "opacity 1.0 1.0 1.0, class:^((?i)^minecraft.*)$"
+        "opacity 1.0 1.0 1.0, class:^(com.mojang.minecraft.java-edition)$"
       ];
 
       "$mod" = "SUPER";
@@ -164,6 +164,7 @@
           "$mod, R, exec, $cmdmenu"
           "$mod, P, pseudo,"
           "$mod, S, togglesplit,"
+          "$mod, HOME, exec, $clip"
 
           "SUPER_CTRL SHIFT,space,execr,fcitx5-remote -t"
           "$mod, left, movefocus, l"
