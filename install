@@ -69,7 +69,6 @@ sudo rm -rf /etc/nixos
 
 ## Install the new configuration
 mkdir -p ~/.config/
-cp -r .non-nixed/* ~/.config/
 
 hostname=$(hostname)
 read -r -p "What is your hostname? [your current: $hostname]: " hostname

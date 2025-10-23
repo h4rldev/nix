@@ -53,7 +53,7 @@
       # hyprland.overlays.default
       prism-launcher.overlays.default
     ];
-  in rec {
+  in {
     apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations = {
       suicide-box = nixpkgs.lib.nixosSystem {
