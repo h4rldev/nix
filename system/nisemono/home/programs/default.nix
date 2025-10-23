@@ -317,32 +317,9 @@
   };
 
   imports = [
-    ./direnv.nix
-    ./git.nix
-    ./qt.nix
-    ./zsh.nix
-    ./mime.nix
-    ./fuzzel.nix
     ./waybar.nix
-    ./zellij.nix
-    ./udiskie.nix
-    ./hyprlock.nix
-    ./gtk.nix
-    ./hyprpaper.nix
-    ./wlogout.nix
-    ./fastfetch.nix
-    ./stylix.nix
-    ./mako.nix
-    ./zoxide.nix
-    ./catppuccin.nix
-    ./ghostty.nix
-    ./ibus.nix
-    ./sshfs.nix
-    ./hypridle.nix
-    ./xdg-portal.nix
-    ./zed.nix
-    ./brave.nix
-    ./carapace.nix
+    ./terminal.nix
+    # ./carapace.nix
     # ./nushell.nix
   ];
 }
