@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "h4rl";
@@ -42,16 +46,22 @@
       keybase-gui
       vscode
       pyprland
-      wakatime
+      wakatime-cli
       qbittorrent
       keepassxc
       prismlauncher
       osu-lazer-bin
-      onlyoffice-bin_latest
+      onlyoffice-desktopeditors
       ripgrep
       piper
       teamspeak6-client
       feishin
+      glib
+      fd
+      imagemagick
+      ghostscript
+      tectonic
+      mermaid-cli
 
       tree-sitter
 
@@ -70,15 +80,21 @@
       obsidian
       croc
 
+      retroarch-full
+      poptracker
+
       moonlight-qt
 
       # volume
       syshud
+      heroic
 
       # power menu
       syspower
 
+      archipelago
       gimp
+      inputs.affinity-nix.packages.x86_64-linux.v3
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
 

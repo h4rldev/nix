@@ -17,6 +17,9 @@
       {
         removeWarningPopup = true;
       })
+    reaction
+    gearlever
+    r2modman
   ];
 
   programs = {

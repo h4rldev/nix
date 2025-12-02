@@ -78,6 +78,9 @@
     zsh = {
       enableCompletion = true;
       syntaxHighlighting.enable = true;
+      autosuggestion = {
+        enable = true;
+      };
       plugins = [
         {
           name = "zsh-nix-shell";

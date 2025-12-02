@@ -1,24 +1,29 @@
 {
   pkgs,
-  lib,
   inputs,
   ...
 }: {
+  qt.enable = true;
+  gtk.enable = true;
+  i18n.inputMethod.enable = true;
+  stylix.enable = true;
+
   i18n.inputMethod = {
-    enable = false;
     type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-gtk
-      fcitx5-configtool
+      qt6Packages.fcitx5-configtool
       fcitx5-m17n
-      fcitx5-with-addons
+      qt6Packages.fcitx5-with-addons
       fcitx5-mozc-ut
     ];
   };
 
   xdg = {
+    portal.enable = true;
+    mimeApps.enable = true;
+
     portal = {
-      enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
@@ -26,7 +31,6 @@
     };
 
     mimeApps = {
-      enable = true;
       associations.added = {
         "inode/directory" = ["pcmanfm.desktop"];
         "application/zip" = ["xarchiver.desktop"];
@@ -60,23 +64,12 @@
     };
   };
 
-  qt = {
-    enable = true;
-    platformTheme = {
-      name = lib.mkForce "kvantum";
-    };
-    style = {
-      name = lib.mkForce "kvantum";
-    };
-  };
-
   gtk = {
-    enable = true;
     gtk2.extraConfig = "gtk-application-prefer-dark-theme = true";
     gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
   };
+
   stylix = {
-    enable = true;
     autoEnable = true;
     polarity = "dark";
     base16Scheme = {

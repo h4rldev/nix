@@ -13,9 +13,11 @@
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
     xwayland.enable = true;
+    /*
     plugins = with pkgs.hyprlandPlugins; [
-      csgo-vulkan-fix
-    ];
+          csgo-vulkan-fix
+        ];
+    */
 
     settings = {
       exec-once = [
@@ -144,6 +146,7 @@
         "opacity 1.0 1.0 1.0, class:^(org.vinegarhq.Sober)$"
         "opacity 1.0 1.0 1.0, class:^((?i)^minecraft.*)$"
         "opacity 1.0 1.0 1.0, class:^(com.mojang.minecraft.java-edition)$"
+        "opacity 1.0 1.0 1.0, class:^(steam_app_322170)$"
       ];
 
       "$mod" = "SUPER";

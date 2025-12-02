@@ -17,14 +17,6 @@
       ];
 
       services = {
-        regreet = {
-          enableGnomeKeyring = true;
-          kwallet = {
-            enable = true;
-            package = pkgs.kdePackages.kwallet-pam;
-          };
-        };
-
         greetd = {
           enableGnomeKeyring = true;
           kwallet = {
