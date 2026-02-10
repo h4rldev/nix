@@ -18,6 +18,13 @@
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-facter-modules = {
+      url = "github:nix-community/nixos-facter-modules";
+    };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     affinity-nix.url = "github:mrshmllow/affinity-nix";
@@ -52,6 +59,8 @@
     affinity-nix,
     spicetify-nix,
     hytale-launcher,
+    disko,
+    nixos-facter-modules,
     ...
   } @ inputs: let
   in {
@@ -133,6 +142,20 @@
           }
           ./global_modules
           ./system/nisemono
+        ];
+      };
+      meowy = nixpkgs.lib.nixosSystem {
+        nixpkgs.stdenv.hostPlatform.system = "x86_64-linux";
+        modules = [
+          disko.nixosModules.disko
+          ./system/meowy
+          nixos-facter-modules.nixosModules.facter
+          {
+            config.facter.reportPath =
+              if builtins.pathExists ./facter.json
+              then ./facter.json
+              else throw "Have you forgotten to run nixos-anywhere with `--generate-hardware-config nixos-facter ./facter.json`?";
+          }
         ];
       };
       windows = nixpkgs.lib.nixosSystem {
