@@ -49,12 +49,12 @@ in {
       enable = true;
       settings = {
         default_session = {
-          command = "Hyprland --config ${hyprlandConfig}";
+          command = "start-hyprland -- --config ${hyprlandConfig}";
           user = "h4rl";
         };
 
         initial_session = {
-          command = "Hyprland";
+          command = "start-hyprland";
           user = "h4rl";
         };
       };
@@ -87,13 +87,26 @@ in {
             }
           '')
         ];
+        extraConfig = {
+          "99-block-source-volume" = {
+            "monitor.alsa.rules" = [
+              {
+                matches = [
+                  {
+                    "node.name" = "~alsa_input.*";
+                  }
+                ];
+                actions.quirks = ["block-source-volume"];
+              }
+            ];
+          };
+        };
       };
     };
 
     ollama = {
       enable = false;
       package = pkgs.ollama-rocm;
-      acceleration = "rocm";
       rocmOverrideGfx = "10.1.0";
       models = "/mnt/byebyewindows/ollama/models";
       loadModels = [

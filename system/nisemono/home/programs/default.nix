@@ -250,6 +250,7 @@
     element-desktop.enable = true;
     chromium.enable = true;
     fuzzel.enable = true;
+    spicetify.enable = true;
 
     element-desktop = {
       package = pkgs.element-desktop.overrideAttrs (old: {
@@ -303,6 +304,7 @@
         "--disable-features=WaylandWpColorManagerV1"
       ];
     };
+
     fuzzel = {
       settings = {
         main = {
@@ -313,6 +315,147 @@
           width = 100;
         };
       };
+    };
+
+    spicetify = {
+      alwaysEnableDevTools = true;
+      wayland = true;
+      windowManagerPatch = true;
+      enabledExtensions = [
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "Spikerko";
+              repo = "spicy-lyrics";
+              rev = "1b8858f94587d650255d60ff96d284f05af6440d";
+              hash = "sha256-OXb6MOtkxiwBwFcuDxxcVqBod+JfAYpVz4WXw7JYbF4=";
+            })
+            + /builds;
+
+          name = "spicy-lyrics.mjs";
+        }
+        {
+          src = pkgs.fetchFromGitHub {
+            owner = "theRealPadster";
+            repo = "spicetify-hide-podcasts";
+            rev = "1541afc2d5585d764a11d67273217f3b5d78f879";
+            hash = "sha256-DjvEScRWMk7+b7mKcIb0fASk3oH2epggIuQrfzzHuiI=";
+          };
+          name = "hidePodcasts.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "daksh2k";
+              repo = "Spicetify-stuff";
+              rev = "23a544f23ee45ad3161a3dba51e1cd0734d0f1de";
+              hash = "sha256-mjw5glHnaDWbZbeLf93a2VOC9KgsvV9UAhDxC2R43MQ=";
+            })
+            + /Extensions/auto-skip/dist;
+          name = "autoSkip.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "daksh2k";
+              repo = "Spicetify-stuff";
+              rev = "23a544f23ee45ad3161a3dba51e1cd0734d0f1de";
+              hash = "sha256-mjw5glHnaDWbZbeLf93a2VOC9KgsvV9UAhDxC2R43MQ=";
+            })
+            + /Extensions;
+          name = "volumePercentage.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "ohitstom";
+              repo = "spicetify-extensions";
+              rev = "0dc291fc26410499f1ee273a2cd3744148e62b7c";
+              hash = "sha256-GVlfji0n9LX1xi7l4gG6Tboo4o554auYplM8CW08tFQ=";
+            })
+            + /scannables;
+          name = "scannables.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "Pithaya";
+              repo = "spicetify-apps";
+              rev = "1645dc91fbfed89ef9a35fdfc7316259df1653c5";
+              hash = "sha256-6xeXFoS/DIu7A+zIyzB3gVw6KgirnNIgqCkSt9p8pUo=";
+            })
+            + /extensions/romaji-convert/dist;
+
+          name = "romaji-convert.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "iHelops";
+              repo = "smooth-scrolling";
+              rev = "10b1aebdbfbb9c7cc04c8b33e074f653437a0dd0";
+              hash = "sha256-KlEmL6pESgODTqkT0a4Zbj2Qga6t8fQOsyBsGvY+504=";
+            })
+            + /dist;
+          name = "smooth-scrolling.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "ssatwik975";
+              repo = "Speedify";
+              rev = "69a90c6a9833ba8a7da1a90c61734f77f370950d";
+              hash = "sha256-Kf+mR41NfX+yOEQCnDFUjHRPcJZHvPFXBUFg6BBuYXA=";
+            })
+            + /dist;
+
+          name = "speedify.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "41pha1";
+              repo = "spicetify-extensions";
+              rev = "5015b9122a9c39274bdc7507e1de4fec0cc20f95";
+              hash = "sha256-JkkIs40Kp57kLTcb95WIgfHDoCP/LHZ3TmdP1w1e1OY=";
+            })
+            + /romaja-lyrics;
+          name = "romaja_lyrics.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "41pha1";
+              repo = "spicetify-extensions";
+              rev = "5015b9122a9c39274bdc7507e1de4fec0cc20f95";
+              hash = "sha256-JkkIs40Kp57kLTcb95WIgfHDoCP/LHZ3TmdP1w1e1OY=";
+            })
+            + /romaji-lyrics;
+          name = "romaji_lyrics.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "Aimarekin";
+              repo = "Aimarekins-Spicetify-Extensions";
+              rev = "82dbbaec37540e82dcd11d897646c0fdb068c3e8";
+              hash = "sha256-ssUhZDAnPVsIFnKpm83sDe4+aShOjgWnmtPxOlifHAQ=";
+            })
+            + /_dist;
+          name = "playing-source.js";
+        }
+        {
+          src =
+            (pkgs.fetchFromGitHub {
+              owner = "pnthach95";
+              repo = "spicetify-extensions";
+              rev = "9131a056372e9cba3b44858549c95710073347eb";
+              hash = "sha256-i5DliX8EUH6rZGXjqGD+YrwklJ5IXb+sIHieiT5Cm6o=";
+            })
+            + /dist;
+          name = "copytoclipboard.js";
+        }
+      ];
     };
   };
 

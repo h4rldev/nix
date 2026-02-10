@@ -80,7 +80,7 @@
       obsidian
       croc
 
-      retroarch-full
+      #retroarch-full
       poptracker
 
       moonlight-qt
@@ -95,6 +95,15 @@
       archipelago
       gimp
       inputs.affinity-nix.packages.x86_64-linux.v3
+      inputs.hytale-launcher.packages.x86_64-linux.default
+      tidal-hifi
+
+      tinymist
+      typstyle
+
+      yacreader
+      uzdoom
+      qzdl
     ]
     ++ (lib.filter (e: e ? type && e.type == "derivation") (lib.attrValues pkgs.nerd-fonts));
 
@@ -104,6 +113,22 @@
     hyprcursor = {
       enable = true;
       size = 18;
+    };
+  };
+
+  xdg.desktopEntries.osu-lazer-gamemode = {
+    exec = "gamemoderun osu! %u";
+    name = "osu! (gamemode)";
+    icon = "osu";
+    comment = "A free-to-win rhythm game. Rhythm is just a *click* away! (with gamemode)";
+    terminal = false;
+    type = "Application";
+    mimeType = ["application/x-osu-beatmap-archive" "application/x-osu-skin-archive" "application/x-osu-beatmap" "application/x-osu-storyboard" "application/x-osu-replay" "x-scheme-handler/osu"];
+    categories = ["Game"];
+    startupNotify = true;
+    settings = {
+      StartupWMClass = "osu!";
+      SingleMainWindow = "true";
     };
   };
 

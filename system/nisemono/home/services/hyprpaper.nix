@@ -23,8 +23,16 @@
         # "DP-1, ${config.home.homeDirectory}/.config/nix/.wallpapers/bliss.jpg"
         # "HDMI-A-1, /home/h4rl/.config/nix/.wallpapers/lain.png"
         # "HDMI-A-1, ${config.home.homeDirectory}/.config/nix/.wallpapers/bliss.jpg"
-        "$big, $wallpaper_dir/pixel-car.png"
-        "$small, $wallpaper_dir/pixel-car.png"
+        {
+          monitor = "$big";
+          path = "$wallpaper_dir/pixel-car.png";
+          fit_mode = "cover";
+        }
+        {
+          monitor = "$small";
+          path = "$wallpaper_dir/pixel-car.png";
+          fit_mode = "cover";
+        }
       ];
     };
   };

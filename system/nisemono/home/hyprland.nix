@@ -140,13 +140,15 @@
       ];
 
       windowrule = [
-        "float, class:^(drop.term)$"
-        "float, class:^(com.saivert.pwvucontrol)$"
-        "opacity 0.9 0.9 1.0, class:.*"
-        "opacity 1.0 1.0 1.0, class:^(org.vinegarhq.Sober)$"
-        "opacity 1.0 1.0 1.0, class:^((?i)^minecraft.*)$"
-        "opacity 1.0 1.0 1.0, class:^(com.mojang.minecraft.java-edition)$"
-        "opacity 1.0 1.0 1.0, class:^(steam_app_322170)$"
+        "float true, match:class ^(drop.term)$"
+        "float true, match:class ^(com.saivert.pwvucontrol)$"
+        "opacity 0.9 override 0.9 override 1.0 override, match:class .*"
+        "opacity 1.0 override 1.0 override 1.0 override, match:class ^(org.vinegarhq.Sober)$"
+        "opacity 1.0  override 1.0 override 1.0 override, match:class ^((?i)^minecraft.*)$"
+        "opacity 1.0 override 1.0 override 1.0 override, match:class ^(com.mojang.minecraft.java-edition)$"
+        "opacity 1.0 override 1.0 override 1.0 override, match:class ^(steam_app_322170)$"
+        "match:class (pinentry-)(.*), stay_focused on"
+        "match:class ^(ArchipelagoLauncher)$, float false"
       ];
 
       "$mod" = "SUPER";
@@ -163,6 +165,7 @@
           "$mod, F, togglefloating,"
           "$mod SHIFT, F, fullscreenstate, 2 2"
           "$mod CTRL, F, fullscreenstate, -1 2"
+          "$mod SHIFT, T, setprop, active opaque toggle"
           "$mod, D, exec, $menu"
           "$mod, R, exec, $cmdmenu"
           "$mod, P, pseudo,"

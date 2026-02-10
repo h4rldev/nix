@@ -189,10 +189,11 @@
             format-alt = "{ifname}: {ipaddr}/{cidr}";
           };
 
-          "clock" = {
+          clock = {
             format = "{:%H:%M:%S}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
             format-alt = "{:%Y-%m-%d}";
+            locale = "en_GB.UTF-8";
             calendar = {
               mode = "month";
               mode-mon-col = 3;
@@ -369,6 +370,7 @@
             format = "{:%H:%M:%S}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
             format-alt = "{:%Y-%m-%d}";
+            locale = "en_GB.UTF-8";
             calendar = {
               mode = "month";
               mode-mon-col = 3;

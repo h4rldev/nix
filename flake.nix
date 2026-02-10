@@ -21,6 +21,8 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     affinity-nix.url = "github:mrshmllow/affinity-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
   };
 
   nixConfig = {
@@ -48,6 +50,8 @@
     stylix,
     neovim-nightly-overlay,
     affinity-nix,
+    spicetify-nix,
+    hytale-launcher,
     ...
   } @ inputs: let
   in {
@@ -119,6 +123,7 @@
                 home.homeDirectory = "/home/h4rl";
                 imports = [
                   stylix.homeModules.stylix
+                  spicetify-nix.homeManagerModules.spicetify
                   catppuccin.homeModules.catppuccin
                   # hyprland.homeManagerModules.default
                   ./system/nisemono/home
