@@ -30,6 +30,10 @@
     affinity-nix.url = "github:mrshmllow/affinity-nix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -61,6 +65,7 @@
     hytale-launcher,
     disko,
     nixos-facter-modules,
+    sops-nix,
     ...
   } @ inputs: let
   in {
@@ -145,10 +150,11 @@
         ];
       };
       meowy = nixpkgs.lib.nixosSystem {
-        nixpkgs.stdenv.hostPlatform.system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
         modules = [
           disko.nixosModules.disko
           ./system/meowy
+	  sops-nix.nixosModules.sops
           nixos-facter-modules.nixosModules.facter
           {
             config.facter.reportPath =

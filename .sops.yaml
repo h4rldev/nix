@@ -1,0 +1,9 @@
+key:
+  - &admin_h4rl age1pev935m3u05300qwm3nr7uw6fektg2xg6hj936km4hy5kptwhcpq6ff3g6
+  - &server_meowy age1wjw4qplfdp672wrngh89cx32y53ttwwhqpqdgq729hksvykl0pms258t9c
+creation_rules:
+  - path_regex: .secrets/meowy/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+        - *admin_h4rl
+        - *server_meowy
